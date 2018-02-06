@@ -6,7 +6,7 @@ import store from './store'
 import './styles/vendor.scss'
 import './styles/app.css'
 
-import App from './components/App.js'
+import App from './components/App'
 
 ReactDOM.render(
   <Provider store={store}>

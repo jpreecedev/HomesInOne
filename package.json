@@ -19,7 +19,7 @@
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "setupFiles": [
-      "./test/jestsetup.js"
+      "./jestsetup.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -34,6 +34,8 @@
     "bootstrap": "^4.0.0",
     "glamor": "^2.20.40",
     "glamorous": "^4.11.4",
+    "material-ui": "^1.0.0-beta.32",
+    "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
