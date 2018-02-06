@@ -32,7 +32,9 @@
   ],
   "dependencies": {
     "bootstrap": "^4.0.0",
-    "classnames": "^2.2.5",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.11.4",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -63,20 +65,14 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.1.4",
     "node-sass": "^4.7.2",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.1.0",
-    "postcss-modules": "^1.1.0",
-    "react-css-modules": "^4.7.1",
     "react-test-renderer": "^16.2.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-mock-store": "^1.5.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
+    "stylelint": "^8.4.0",
+    "stylelint-config-recommended": "^2.0.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
-  },
-  "peerDependencies": {
-    "caniuse-lite": "^1.0.30000697"
   }
 }
