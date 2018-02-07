@@ -1,7 +1,13 @@
-import glamorous from 'glamorous'
+import React from 'react'
+import Typography from 'material-ui/Typography'
 
-export default glamorous.h1({
-  fontSize: '2.5rem',
-  marginTop: 10,
-  color: '#CC3A4B'
-})
+const Heading = props => {
+  const { text } = props
+  return (
+    <Typography variant='display1' gutterBottom>
+      { text }
+    </Typography>
+  )
+}
+
+export default Heading

@@ -31,7 +31,7 @@ function AppNavBar (props) {
             <MenuIcon />
           </IconButton>
           <Typography variant='title' color='inherit' className={classes.flex}>
-            Title
+            HomesInOne.co.uk
           </Typography>
           <Button color='inherit'>Login</Button>
         </Toolbar>
