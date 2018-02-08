@@ -1,21 +1,13 @@
 import React from 'react'
-import Button from 'material-ui/Button'
-
-import { withStyles } from 'material-ui/styles'
-
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit
-  }
-})
 
 const AppButton = props => {
-  const { children, variant, color, classes } = props
+  const { children, variant } = props
+
   return (
-    <Button variant={variant || 'raised'} color={color || 'primary'} className={classes.button}>
-      {children}
-    </Button>
+    <button className={`btn btn-${variant || 'primary'}`}>
+      { children }
+    </button>
   )
 }
 
-export default withStyles(styles)(AppButton)
+export default AppButton

@@ -1,47 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
-import AppBar from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
-import Typography from 'material-ui/Typography'
-import Button from 'material-ui/Button'
-import IconButton from 'material-ui/IconButton'
-import MenuIcon from 'material-ui-icons/Menu'
 
-const styles = {
-  root: {
-    width: '100%'
-  },
-  flex: {
-    flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
-}
-
-function AppNavBar (props) {
-  const { classes } = props
+const AppNavBar = props => {
   return (
-    <div className={classes.root}>
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant='title' color='inherit' className={classes.flex}>
-            HomesInOne.co.uk
-          </Typography>
-          <Button color='inherit'>Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <nav className='navbar navbar-expand navbar-dark bg-dark'>
+      <a className='navbar-brand' href='#'>HomesInOne.co.uk </a>
+      <div className='collapse navbar-collapse' id='navbarsExample02'>
+        <ul className='navbar-nav mr-auto'>
+          <li className='nav-item active'>
+            <a className='nav-link' href='#'>Home <span className='sr-only'>(current)</span></a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'>Link</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   )
 }
 
-AppNavBar.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(AppNavBar)
+export default AppNavBar
