@@ -1,0 +1,13 @@
+.sidebar {
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  margin-top: var(--size-small);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: var(--size-tiny);
+  color: #999999;
+}

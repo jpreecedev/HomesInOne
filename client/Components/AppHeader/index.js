@@ -1,8 +1,16 @@
 import React from 'react'
+import classnames from 'classnames'
 
 const AppNavBar = props => {
+  const { className } = props
+
+  const navClasses = classnames(
+    className,
+    'navbar navbar-expand navbar-dark bg-dark'
+  )
+
   return (
-    <nav className='navbar navbar-expand navbar-dark bg-dark'>
+    <nav className={navClasses}>
       <a className='navbar-brand' href='#'>HomesInOne.co.uk </a>
       <div className='collapse navbar-collapse' id='navbarsExample02'>
         <ul className='navbar-nav mr-auto'>
