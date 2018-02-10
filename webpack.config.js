@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -12,8 +14,13 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'index_bundle.js'
   },
+  resolve: {
+    alias: {
+      Styles: path.resolve(__dirname, 'client/styles')
+    }
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -27,7 +34,8 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader'
-      }, {
+      },
+      {
         test: /\.css$/,
         loader: 'css-loader',
         query: {
@@ -48,5 +56,22 @@ module.exports = {
       }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [
+    HtmlWebpackPluginConfig,
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js',
+      minChunks (module, count) {
+        var context = module.context
+        return context && context.indexOf('node_modules') >= 0
+      }
+    }),
+
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.js$/,
+      minimize: true
+    })
+
+  ]
 }

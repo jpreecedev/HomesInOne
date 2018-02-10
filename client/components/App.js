@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 
 import AppHeader from './AppHeader'
 import AppSideNav from './AppSideNav'
+import Heading from './Heading'
 
-import styles from './App.css'
+import styles from 'Styles/App.css'
 
 const App = props => {
   return (
@@ -14,6 +15,7 @@ const App = props => {
       </AppHeader>
       <AppSideNav className={styles.nav} />
       <main className={styles.main}>
+        <Heading text='Dashboard' />
         Main content
       </main>
     </div>

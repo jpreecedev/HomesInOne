@@ -1,13 +1,23 @@
-:root {
-  --font-size-small: 0.875rem;
-  --font-size-normal: 1rem;
-  --size-tiny: 4px;
-  --size-small: 8px;
-  --size-medium: 16px;
-  --size-large: 32px;
-  --link: #333333;
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav content";
+  height: 100vh;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr;
 }
 
-a {
-  color: var(--link);
+.header {
+  grid-area: header;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.main {
+  padding: 1.5rem;
+  grid-area: content;
+  width: 100%;
 }

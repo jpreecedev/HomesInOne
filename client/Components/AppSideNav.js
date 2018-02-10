@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import styles from './styles.css'
+import styles from 'Styles/AppSideNav.css'
 
 const navClasses = classnames(
   styles.sidebar,

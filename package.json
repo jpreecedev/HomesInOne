@@ -37,6 +37,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0"
@@ -64,6 +65,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.1.4",
     "node-sass": "^4.7.2",
+    "postcss": "^6.0.17",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.1.0",
