@@ -1,26 +1,31 @@
 import React from 'react'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AppHeader from './AppHeader'
 import AppSideNav from './AppSideNav'
-import Heading from './Heading'
 
-import styles from 'Styles/App.css'
+import { Routes as DashboardRouteConfig } from './Dashboard/route-config'
+import { Routes as ChecklistsRouteConfig } from './Checklists/route-config'
+import { Routes as PropertiesRouteConfig } from './Properties/route-config'
+import { Routes as ShortlistRouteConfig } from './Shortlist/route-config'
 
-const App = props => {
-  return (
-    <div className={styles.container}>
-      <AppHeader className={styles.header}>
-        <h1>Holy Grail Layout with CSS Grid</h1>
-      </AppHeader>
-      <AppSideNav className={styles.nav} />
-      <main className={styles.main}>
-        <Heading text='Dashboard' />
-        Main content
-      </main>
-    </div>
-  )
-}
+import styles from 'Styles/App'
+
+const App = props => (
+  <div className={styles.container}>
+    <AppHeader className={styles.header} />
+    <AppSideNav className={styles.nav} />
+    <main className={styles.main}>
+      <Switch>
+        <Route exact path='/' component={DashboardRouteConfig} />
+        <Route path='/checklists' component={ChecklistsRouteConfig} />
+        <Route path='/properties' component={PropertiesRouteConfig} />
+        <Route path='/shortlist' component={ShortlistRouteConfig} />
+      </Switch>
+    </main>
+  </div>
+)
 
 const mapStateToProps = store => {
   return {
@@ -28,4 +33,4 @@ const mapStateToProps = store => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))

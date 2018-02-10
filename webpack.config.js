@@ -15,6 +15,7 @@ module.exports = {
     filename: 'index_bundle.js'
   },
   resolve: {
+    extensions: ['.js', '.css', '.scss'],
     alias: {
       Styles: path.resolve(__dirname, 'client/styles')
     }
@@ -66,11 +67,6 @@ module.exports = {
         var context = module.context
         return context && context.indexOf('node_modules') >= 0
       }
-    }),
-
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.js$/,
-      minimize: true
     })
 
   ]

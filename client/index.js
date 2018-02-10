@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './store'
 
-import './styles/vendor.scss'
-import './styles/global.css'
+import 'Styles/vendor'
+import 'Styles/global'
 
 import App from './components/App.js'
 
