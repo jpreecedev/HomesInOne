@@ -27,7 +27,7 @@ const NavLink = ({ to, className, children, isActive: getIsActive }) => {
 NavLink.propTypes = {
   to: PropTypes.string.isRequired,
   className: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
   isActive: PropTypes.func
 }
 

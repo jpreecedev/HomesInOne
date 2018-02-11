@@ -4,10 +4,3 @@
   font-weight: 500;
   padding-top: var(--size-small);
 }
-
-.icon {
-  width: 16px;
-  height: 16px;
-  margin-right: var(--size-tiny);
-  color: #999999;
-}
