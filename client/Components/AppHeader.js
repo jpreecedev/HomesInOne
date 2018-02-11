@@ -1,32 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import { withStyles } from 'material-ui/styles'
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import Typography from 'material-ui/Typography'
+import Button from './Button'
 
-const AppHeader = ({ className }) => {
-  const navClasses = classnames(
-    className,
-    'navbar navbar-expand navbar-dark bg-dark'
-  )
+const styles = {
+  flex: {
+    flex: 1
+  }
+}
 
+const AppHeader = ({ classes, className }) => {
   return (
-    <nav className={navClasses}>
-      <a className='navbar-brand' href='#'>HomesInOne.co.uk </a>
-      <div className='collapse navbar-collapse' id='navbarsExample02'>
-        <ul className='navbar-nav mr-auto'>
-          <li className='nav-item active'>
-            <a className='nav-link' href='#'>Home <span className='sr-only'>(current)</span></a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#'>Link</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div className={className}>
+      <AppBar position='static'>
+        <Toolbar>
+          <Typography variant='title' color='inherit' className={classes.flex}>
+              HomesInOne.co.uk
+          </Typography>
+          <Button color='inherit'>Login</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
   )
 }
 
 AppHeader.propTypes = {
-  className: PropTypes.string
+  classes: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired
 }
 
-export default AppHeader
+export default withStyles(styles)(AppHeader)
