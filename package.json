@@ -14,15 +14,11 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
   "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy"
-    },
-    "setupFiles": [
-      "./jest.config.js"
-    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
     ]
   },
   "browserslist": [
@@ -46,8 +42,10 @@
     "typeface-roboto": "^0.0.54"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.39",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.2.2",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
