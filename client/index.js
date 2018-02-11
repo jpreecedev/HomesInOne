@@ -1,19 +1,24 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import store from './store'
 
 import 'typeface-roboto'
 import 'Styles/global'
 
-import App from './components/App.js'
+import { Routes as LoginRouteConfig } from './components/Login/route-config'
+import Shell from './components/Shell.js'
 
 const HomesInOne = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Switch>
+          <Route path='/login' component={LoginRouteConfig} />
+          <Route path='/shell' component={Shell} />
+          <Redirect from='/' to='/shell' />
+        </Switch>
       </BrowserRouter>
     </Provider>
   )
