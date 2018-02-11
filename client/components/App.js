@@ -1,9 +1,10 @@
 import React from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AppHeader from './AppHeader'
 import AppSideNav from './AppSideNav'
+import NotFound from './NotFound'
 
 import { Routes as DashboardRouteConfig } from './Dashboard/route-config'
 import { Routes as ChecklistsRouteConfig } from './Checklists/route-config'
@@ -18,10 +19,11 @@ const App = () => (
     <AppSideNav className={styles.nav} />
     <main className={styles.main}>
       <Switch>
-        <Route exact path='/' component={DashboardRouteConfig} />
+        <Route path='/dashboard' component={DashboardRouteConfig} />
         <Route path='/checklists' component={ChecklistsRouteConfig} />
         <Route path='/properties' component={PropertiesRouteConfig} />
         <Route path='/shortlist' component={ShortlistRouteConfig} />
+        <Route path='*' component={NotFound} />
       </Switch>
     </main>
   </div>

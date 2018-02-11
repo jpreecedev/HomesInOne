@@ -16,7 +16,7 @@ const themeStyles = theme => ({
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
-    margin: theme.spacing.unit
+    marginTop: theme.spacing.unit
   },
   link: {
     paddingLeft: theme.spacing.unit * 2,
@@ -28,37 +28,29 @@ const themeStyles = theme => ({
 const AppSideNav = ({classes}) => (
   <div className={`${classes.root} ${styles.sidebar}`}>
     <List component='nav'>
-      <ListItem button>
+      <ListItem component={NavLink} to={'/dashboard'} className={classes.link} button>
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
-        <NavLink to={'/'} className={classes.link}>
-          <ListItemText primary='Dashboard' />
-        </NavLink>
+        <ListItemText primary='Dashboard' />
       </ListItem>
-      <ListItem button>
+      <ListItem component={NavLink} to={'/properties'} className={classes.link} button>
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
-        <NavLink to={'/properties'} className={classes.link}>
-          <ListItemText primary='Properties' />
-        </NavLink>
+        <ListItemText primary='Properties' />
       </ListItem>
-      <ListItem button>
+      <ListItem component={NavLink} to={'/shortlist'} className={classes.link} button>
         <ListItemIcon>
           <VisibilityIcon />
         </ListItemIcon>
-        <NavLink to={'/shortlist'} className={classes.link}>
-          <ListItemText primary='Shortlist' />
-        </NavLink>
+        <ListItemText primary='Shortlist' />
       </ListItem>
-      <ListItem button>
+      <ListItem component={NavLink} to={'/checklists'} className={classes.link} button>
         <ListItemIcon>
           <ListIcon />
         </ListItemIcon>
-        <NavLink to={'/checklists'} className={classes.link}>
-          <ListItemText primary='Checklists' />
-        </NavLink>
+        <ListItemText primary='Checklists' />
       </ListItem>
     </List>
   </div>

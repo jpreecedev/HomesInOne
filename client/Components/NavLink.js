@@ -2,7 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, Route } from 'react-router-dom'
 
-const NavLink = ({ to, className, children, isActive: getIsActive }) => {
+import { withStyles } from 'material-ui/styles'
+import grey from 'material-ui/colors/grey'
+
+const activeGrey = grey[200]
+
+const themeStyles = theme => ({
+  active: {
+    backgroundColor: activeGrey
+  }
+})
+
+const NavLink = ({ to, className, classes, children, isActive: getIsActive }) => {
   const path = typeof to === 'object' ? to.pathname : to
 
   // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
@@ -12,7 +23,7 @@ const NavLink = ({ to, className, children, isActive: getIsActive }) => {
     <Route path={escapedPath} children={({location, match}) => {
       const isActive = !!(getIsActive ? getIsActive(match, location) : match)
       const linkClassName = isActive
-        ? [className, 'active'].filter(i => i).join(' ')
+        ? [className, classes.active].filter(i => i).join(' ')
         : className
 
       return (
@@ -27,8 +38,9 @@ const NavLink = ({ to, className, children, isActive: getIsActive }) => {
 NavLink.propTypes = {
   to: PropTypes.string.isRequired,
   className: PropTypes.string,
-  children: PropTypes.object.isRequired,
-  isActive: PropTypes.func
+  children: PropTypes.array.isRequired,
+  isActive: PropTypes.func,
+  classes: PropTypes.object.isRequired
 }
 
-export default NavLink
+export default withStyles(themeStyles)(NavLink)
