@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import store from './store'
 
+import 'whatwg-fetch'
 import 'typeface-roboto'
 import 'Styles/global'
 

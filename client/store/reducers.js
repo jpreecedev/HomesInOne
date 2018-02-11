@@ -8,6 +8,11 @@ export const ExampleReducer = (state = defaultState, action) => {
         prop: action.payload
       })
       break
+    case ExampleActions.FETCH_OFFERS_SUCCESS:
+      state = Object.assign({}, state, {
+        message: action.payload.message
+      })
+      break
   }
 
   return state

@@ -17,7 +17,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.css', '.scss'],
     alias: {
-      Styles: path.resolve(__dirname, 'client/styles')
+      Styles: path.resolve(__dirname, 'client/styles'),
+      Store: path.resolve(__dirname, 'client/store')
     }
   },
   module: {
