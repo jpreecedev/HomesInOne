@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './store'
 
-import 'Styles/vendor'
+import 'typeface-roboto'
 import 'Styles/global'
 
 import App from './components/App.js'

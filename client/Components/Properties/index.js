@@ -3,9 +3,9 @@ import Heading from '../Heading'
 
 import styles from 'Styles/Properties'
 
-const Properties = props => (
+const Properties = () => (
   <div>
-    <Heading text='Properties' />
+    <Heading text='Properties' variant='heading-1' />
   </div>
 )
 

@@ -9,7 +9,7 @@ const navClasses = classnames(
   'bg-light'
 )
 
-const AppSideNav = props => (
+const AppSideNav = () => (
   <nav className={navClasses}>
     <ul className='nav flex-column'>
       <li className='nav-item'>

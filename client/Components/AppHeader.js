@@ -1,9 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-const AppNavBar = props => {
-  const { className } = props
-
+const AppHeader = ({ className }) => {
   const navClasses = classnames(
     className,
     'navbar navbar-expand navbar-dark bg-dark'
@@ -26,4 +25,8 @@ const AppNavBar = props => {
   )
 }
 
-export default AppNavBar
+AppHeader.propTypes = {
+  className: PropTypes.string
+}
+
+export default AppHeader

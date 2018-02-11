@@ -1,8 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link, Route } from 'react-router-dom'
 
-const NavLink = props => {
-  const { to, className, children, isActive: getIsActive } = props
+const NavLink = ({ to, className, children, isActive: getIsActive }) => {
   const path = typeof to === 'object' ? to.pathname : to
 
   // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
@@ -22,6 +22,13 @@ const NavLink = props => {
       )
     }} />
   )
+}
+
+NavLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.string.isRequired,
+  isActive: PropTypes.func
 }
 
 export default NavLink

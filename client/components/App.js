@@ -12,7 +12,7 @@ import { Routes as ShortlistRouteConfig } from './Shortlist/route-config'
 
 import styles from 'Styles/App'
 
-const App = props => (
+const App = () => (
   <div className={styles.container}>
     <AppHeader className={styles.header} />
     <AppSideNav className={styles.nav} />

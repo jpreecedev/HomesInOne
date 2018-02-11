@@ -3,9 +3,9 @@ import Heading from '../Heading'
 
 import styles from 'Styles/Checklists'
 
-const Checklists = props => (
+const Checklists = () => (
   <div>
-    <Heading text='Checklists' />
+    <Heading text='Checklists' variant='heading-1' />
   </div>
 )
 
