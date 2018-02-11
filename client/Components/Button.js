@@ -9,8 +9,8 @@ const styles = theme => ({
   }
 })
 
-const AppButton = ({ classes, children, color, variant }) => (
-  <Button color={color} className={classes.button} variant={variant}>
+const AppButton = ({ classes, children, color, variant, onClick }) => (
+  <Button color={color} className={classes.button} variant={variant} onClick={onClick}>
     {children}
   </Button>
 )
@@ -19,7 +19,8 @@ AppButton.propTypes = {
   classes: PropTypes.object.isRequired,
   children: PropTypes.string,
   color: PropTypes.oneOf(['default', 'inherit', 'primary', 'secondary']),
-  variant: PropTypes.oneOf(['flat', 'raised', 'fab'])
+  variant: PropTypes.oneOf(['flat', 'raised', 'fab']),
+  onClick: PropTypes.func
 }
 
 export default withStyles(styles)(AppButton)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AppHeader from './AppHeader'
@@ -10,6 +10,7 @@ import { Routes as DashboardRouteConfig } from './Dashboard/route-config'
 import { Routes as ChecklistsRouteConfig } from './Checklists/route-config'
 import { Routes as PropertiesRouteConfig } from './Properties/route-config'
 import { Routes as ShortlistRouteConfig } from './Shortlist/route-config'
+import { Routes as LoginRouteConfig } from './Login/route-config'
 
 import styles from 'Styles/App'
 
@@ -23,6 +24,7 @@ const App = () => (
         <Route path='/checklists' component={ChecklistsRouteConfig} />
         <Route path='/properties' component={PropertiesRouteConfig} />
         <Route path='/shortlist' component={ShortlistRouteConfig} />
+        <Route path='/login' component={LoginRouteConfig} />
         <Route path='*' component={NotFound} />
       </Switch>
     </main>
