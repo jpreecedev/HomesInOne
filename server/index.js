@@ -26,6 +26,10 @@ router.get('/checklists', (req, res) => {
   res.json([{
     id: 'id1',
     text: 'This is checklist item 1'
+  },
+  {
+    id: 'id2',
+    text: 'This is checklist item 2'
   }])
 })
 
