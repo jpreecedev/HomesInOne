@@ -18,8 +18,15 @@ app.use((req, res, next) => {
   next()
 })
 
-router.get('/', (req, res) => {
-  res.json({message: 'API Initialized!'})
+router.post('/checklists', (req, res) => {
+  console.log('received', res.body)
+})
+
+router.get('/checklists', (req, res) => {
+  res.json([{
+    id: 'id1',
+    text: 'This is checklist item 1'
+  }])
 })
 
 app.use('/api', router)

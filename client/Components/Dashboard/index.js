@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchOffers } from 'Store/actions'
+import { getChecklists } from 'Store/actions/checklist'
 
 import Heading from '../Heading'
 import Button from '../Button'
@@ -13,7 +13,7 @@ const Dashboard = ({handleClick, message}) => (
     <Button color='primary' variant='raised' onClick={() => handleClick()}>
         Hello, World!
     </Button>
-    { message && <Text>{ message }</Text> }
+    { message && message.map(msg => <Text>{ msg.text }</Text>) }
   </div>
 )
 
@@ -26,14 +26,14 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: () => {
-      dispatch(fetchOffers())
+      dispatch(getChecklists())
     }
   }
 }
 
 Dashboard.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  message: PropTypes.string
+  message: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
