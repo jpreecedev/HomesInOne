@@ -1,13 +1,17 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Checklist = sequelize.define('Checklist', {
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const Checklist = sequelize.define('Checklist', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
-  });
-  return Checklist;
-};
+  })
+
+  Checklist.associate = (models) => {
+    Checklist.hasMany(models.TodoItem, {
+      foreignKey: 'checklistId',
+      as: 'checklistItems'
+    })
+  }
+
+  return Checklist
+}

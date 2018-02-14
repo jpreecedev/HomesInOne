@@ -1,14 +1,21 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var ChecklistItem = sequelize.define('ChecklistItem', {
-    name: DataTypes.STRING,
-    complete: DataTypes.BOOLEAN
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const ChecklistItem = sequelize.define('ChecklistItem', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    complete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
-  });
-  return ChecklistItem;
-};
+  })
+
+  ChecklistItem.associate = (models) => {
+    ChecklistItem.belongsTo(models.Todo, {
+      foreignKey: 'checklistId',
+      onDelete: 'CASCADE'
+    })
+  }
+
+  return ChecklistItem
+}
