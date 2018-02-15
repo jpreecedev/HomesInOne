@@ -1,13 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { withStyles } from 'material-ui/styles'
-import List, { ListItem, ListItemText } from 'material-ui/List'
-import Checkbox from 'material-ui/Checkbox'
+import List from 'material-ui/List'
 
 import Heading from './Heading'
-import { toggleChecklistItemComplete } from 'Store/actions/checklist'
+import CheckboxListItem from './CheckboxListItem'
 
 const styles = theme => ({
   root: {
@@ -16,40 +14,21 @@ const styles = theme => ({
   }
 })
 
-const CheckboxList = ({ classes, name, items, toggleChecklistItem }) => {
+const CheckboxList = ({ classes, name, items }) => {
   return (
     <div className={classes.root}>
       <Heading variant='headline' text={name} />
       <List>
-        {items && items.map(value => (
-          <ListItem key={value.id} button onClick={() => toggleChecklistItem(value)} className={classes.listItem}>
-            <Checkbox checked={value.completed} tabIndex={-1} disableRipple />
-            <ListItemText primary={value.name} />
-          </ListItem>
-        ))}
+        {items && items.map(checklistItem => (<CheckboxListItem key={checklistItem.id} checklistItem={checklistItem} />))}
       </List>
     </div>
   )
 }
 
-const mapStateToProps = store => {
-  return {
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleChecklistItem: checklistItem => {
-      dispatch(toggleChecklistItemComplete(checklistItem))
-    }
-  }
-}
-
 CheckboxList.propTypes = {
   classes: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  items: PropTypes.array,
-  toggleChecklistItem: PropTypes.func
+  items: PropTypes.array
 }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(CheckboxList))
+export default withStyles(styles)(CheckboxList)

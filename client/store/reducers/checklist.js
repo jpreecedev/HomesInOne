@@ -12,10 +12,9 @@ const toggleChecklistItem = (checklists, payload) => {
       if (checklistItem.id !== payload.id) {
         return checklistItem
       }
-      return {
-        ...checklistItem,
+      return Object.assign({}, checklistItem, {
         complete: !checklistItem.complete
-      }
+      })
     })
 
     return updatedChecklist
