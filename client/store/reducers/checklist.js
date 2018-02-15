@@ -1,6 +1,27 @@
 import { ChecklistActions } from '../actions/checklist'
 import defaultState from '../defaultState'
 
+const toggleChecklistItem = (checklists, payload) => {
+  return checklists.map(checklist => {
+    if (checklist.id !== payload.checklistId) {
+      return checklist
+    }
+
+    const updatedChecklist = Object.assign({}, checklist)
+    updatedChecklist.checklistItems = updatedChecklist.checklistItems.map(checklistItem => {
+      if (checklistItem.id !== payload.id) {
+        return checklistItem
+      }
+      return {
+        ...checklistItem,
+        complete: !checklistItem.complete
+      }
+    })
+
+    return updatedChecklist
+  })
+}
+
 export const ChecklistReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ChecklistActions.GET_CHECKLISTS_COMPLETE:
@@ -9,7 +30,9 @@ export const ChecklistReducer = (state = defaultState, action) => {
       })
       break
     case ChecklistActions.TOGGLE_CHECKLIST_ITEM_COMPLETE:
-      action.payload.complete = !action.payload.complete // TODO
+      state = Object.assign({}, state, {
+        checklists: toggleChecklistItem(state.checklists, action.payload)
+      })
       break
   }
 
