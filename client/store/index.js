@@ -1,14 +1,14 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk'
 
-import { ExampleReducer } from './reducers'
+import reducers from './reducers'
 
-const reducers = combineReducers({
-  exampleState: ExampleReducer
+const combinedReducers = combineReducers({
+  checklistState: reducers.ChecklistReducer
 })
 
 export default createStore(
-  reducers,
+  combinedReducers,
   compose(
     applyMiddleware(thunkMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

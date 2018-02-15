@@ -28,10 +28,4 @@ const Shell = () => (
   </div>
 )
 
-const mapStateToProps = store => {
-  return {
-    prop: store.exampleState.prop
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(Shell))
+export default withRouter(Shell)

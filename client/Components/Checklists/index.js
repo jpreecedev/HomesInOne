@@ -13,16 +13,20 @@ class Checklists extends Component {
   }
 
   render () {
+    const { checklists } = this.props
+
     return <div>
       <Heading text='Checklists' variant='heading-1' />
-      <CheckboxList items={this.props.message} />
+      {
+        checklists && checklists.map(checklist => <CheckboxList key={checklist.id} name={checklist.name} items={checklist.checklistItems} />)
+      }
     </div>
   }
 }
 
 const mapStateToProps = store => {
   return {
-    message: store.exampleState.message || []
+    checklists: store.checklistState.checklists
   }
 }
 
@@ -36,7 +40,7 @@ const mapDispatchToProps = dispatch => {
 
 Checklists.propTypes = {
   loadChecklists: PropTypes.func.isRequired,
-  message: PropTypes.array
+  checklists: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checklists)

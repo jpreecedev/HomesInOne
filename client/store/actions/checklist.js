@@ -1,12 +1,19 @@
 export const ChecklistActions = {
-  CREATE_CHECKLIST: 'CREATE_CHECKLIST',
   GET_CHECKLISTS: 'GET_CHECKLISTS',
-  ADD_CHECKLIST_ITEM: 'ADD_CHECKLIST_ITEM'
+  GET_CHECKLISTS_COMPLETE: 'GET_CHECKLISTS_COMPLETE',
+  TOGGLE_CHECKLIST_ITEM_COMPLETE: 'TOGGLE_CHECKLIST_ITEM_COMPLETE'
 }
 
-export function getChecklistsSuccess (checklistItem) {
+export function getChecklistsSuccess (checklists) {
   return {
-    type: ChecklistActions.ADD_CHECKLIST_ITEM,
+    type: ChecklistActions.GET_CHECKLISTS_COMPLETE,
+    payload: checklists
+  }
+}
+
+export function toggleChecklistItemComplete (checklistItem) {
+  return {
+    type: ChecklistActions.TOGGLE_CHECKLIST_ITEM_COMPLETE,
     payload: checklistItem
   }
 }
