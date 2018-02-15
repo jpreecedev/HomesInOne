@@ -26,7 +26,8 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'Checklists',
-          key: 'id'
+          key: 'id',
+          as: 'checklistId'
         }
       }
     })

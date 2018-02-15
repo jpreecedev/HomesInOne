@@ -11,7 +11,11 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "postgres:dropdb": "dropdb --username=postgres homesinone-dev",
+    "postgres:createdb": "createdb --username=postgres homesinone-dev",
+    "sql:migratedb": "sequelize db:migrate",
+    "resetdb": "yarn postgres:dropdb && yarn postgres:createdb && yarn sql:migratedb && yarn start"
   },
   "jest": {
     "snapshotSerializers": [

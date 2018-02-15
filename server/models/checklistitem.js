@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
   ChecklistItem.associate = (models) => {
     ChecklistItem.belongsTo(models.Checklist, {
+      foreignKey: 'checklistId',
       onDelete: 'CASCADE'
     })
   }

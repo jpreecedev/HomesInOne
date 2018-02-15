@@ -22,7 +22,7 @@ class Checklists extends Component {
 
 const mapStateToProps = store => {
   return {
-    message: store.exampleState.message
+    message: store.exampleState.message || []
   }
 }
 
