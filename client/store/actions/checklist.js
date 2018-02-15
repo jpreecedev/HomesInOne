@@ -14,7 +14,7 @@ export function getChecklistsSuccess (checklistItem) {
 export const getChecklists = () => dispatch => {
   dispatch({ type: ChecklistActions.GET_CHECKLISTS })
 
-  const request = fetch('http://localhost:3001/api/checklists')
+  const request = fetch('http://localhost:3100/api/checklists')
     .then(response => {
       return response.json()
     })

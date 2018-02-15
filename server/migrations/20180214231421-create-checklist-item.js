@@ -20,6 +20,15 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      checklistId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Checklists',
+          key: 'id',
+          as: 'checklistId'
+        }
       }
     })
   },

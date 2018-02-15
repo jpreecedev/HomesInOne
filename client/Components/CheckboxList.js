@@ -45,7 +45,7 @@ class CheckboxList extends React.Component {
           {items && items.map(value => (
             <ListItem key={value.id} button onClick={() => this.handleToggle(value.id)} className={classes.listItem}>
               <Checkbox checked={this.state.checked.indexOf(value.id) !== -1} tabIndex={-1} disableRipple />
-              <ListItemText primary={value.text} />
+              <ListItemText primary={value.name} />
             </ListItem>
           ))}
         </List>

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Checklist.associate = (models) => {
-    Checklist.hasMany(models.TodoItem, {
+    Checklist.hasMany(models.ChecklistItem, {
       foreignKey: 'checklistId',
       as: 'checklistItems'
     })
