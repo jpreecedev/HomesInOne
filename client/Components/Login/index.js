@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 
-import Heading from '../Heading'
 import Container from '../Container'
 import Text from '../Text'
 import Input from '../Input'
@@ -13,9 +12,7 @@ const themeStyles = theme => ({
   container: {
     maxWidth: 500,
     marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: theme.spacing.unit * 2,
-    paddingBottom: 0
+    marginRight: 'auto'
   },
   loginButton: {
     marginRight: 0
@@ -23,10 +20,7 @@ const themeStyles = theme => ({
 })
 
 const Login = ({classes}) => (
-  <Container additionalStyles={classes.container}>
-    <Heading variant='heading-1' color='primary'>
-        Hello
-    </Heading>
+  <Container additionalStyles={classes.container} title='Hello'>
     <Text>
         Please log in with your account
     </Text>
@@ -34,7 +28,6 @@ const Login = ({classes}) => (
     <Input id='password' label='Password' type='password' />
     <ActionButtonContainer>
       <Button color='primary'>Log In</Button>
-      <Button>Reset</Button>
     </ActionButtonContainer>
   </Container>
 )

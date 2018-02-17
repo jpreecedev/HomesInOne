@@ -6,6 +6,8 @@ import Text from '../Text'
 import TextLink from '../TextLink'
 import Heading from '../Heading'
 
+import FromTemplate from './FromTemplate'
+
 import { getChecklists } from 'Store/actions/checklist'
 
 class Checklists extends Component {
@@ -25,6 +27,7 @@ class Checklists extends Component {
           </Text>
         )
       }
+      <FromTemplate />
     </React.Fragment>
   }
 }

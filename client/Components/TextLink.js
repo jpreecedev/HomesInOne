@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { withStyles } from 'material-ui/styles'
 import Typography from 'material-ui/Typography'
 
-const styles = theme => ({
+const themeStyles = theme => ({
   textLink: {
     color: theme.palette.primary.main,
     display: 'inline-block'
@@ -27,4 +27,4 @@ TextLink.propTypes = {
   text: PropTypes.string
 }
 
-export default withStyles(styles)(TextLink)
+export default withStyles(themeStyles)(TextLink)

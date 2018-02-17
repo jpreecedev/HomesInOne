@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import Button from 'material-ui/Button'
 
-const styles = theme => ({
+const themeStyles = theme => ({
   button: {
     margin: theme.spacing.unit
   }
@@ -23,4 +23,4 @@ AppButton.propTypes = {
   onClick: PropTypes.func
 }
 
-export default withStyles(styles)(AppButton)
+export default withStyles(themeStyles)(AppButton)

@@ -11,15 +11,17 @@ const themeStyles = theme => ({
   }
 })
 
-const Login = ({classes, children}) => (
-  <div className={classes.container}>
-    {children}
+const Login = ({classes, children}) => {
+  const buttons = children ? (Array.isArray(children) ? children : [children]) : []
+
+  return <div className={classes.container}>
+    {buttons}
   </div>
-)
+}
 
 Login.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.array.isRequired
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
 export default withStyles(themeStyles)(Login)

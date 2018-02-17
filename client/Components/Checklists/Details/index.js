@@ -8,7 +8,7 @@ import List from 'material-ui/List'
 import Heading from '../../Heading'
 import CheckboxListItem from '../../CheckboxListItem'
 
-const styles = theme => ({
+const themeStyles = theme => ({
   root: {
     width: '100%',
     backgroundColor: theme.palette.background.paper
@@ -39,4 +39,4 @@ Details.propTypes = {
   match: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Details))
+export default withStyles(themeStyles)(connect(mapStateToProps)(Details))
