@@ -19,12 +19,12 @@ const Details = ({ classes, checklists, match }) => {
   const selectedChecklist = checklists.find(checklist => checklist.id === Number(match.params.id))
   const { name, checklistItems } = selectedChecklist
 
-  return <div>
+  return <React.Fragment>
     <Heading text={name} variant='heading-3' />
     <List className={classes.root}>
       {checklistItems && checklistItems.map(checklistItem => (<CheckboxListItem key={checklistItem.id} checklistItem={checklistItem} />))}
     </List>
-  </div>
+  </React.Fragment>
 }
 
 const mapStateToProps = store => {

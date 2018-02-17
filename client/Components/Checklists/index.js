@@ -15,7 +15,7 @@ class Checklists extends Component {
   render () {
     const { checklists } = this.props
 
-    return <div>
+    return <React.Fragment>
       <Heading text='Checklists' variant='heading-1' />
       {
         checklists && checklists.map((checklist, index) =>
@@ -24,7 +24,7 @@ class Checklists extends Component {
           </Link>
         )
       }
-    </div>
+    </React.Fragment>
   }
 }
 

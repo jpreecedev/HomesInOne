@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import Heading from '../Heading'
 
 const Dashboard = ({message}) => (
-  <div>
+  <React.Fragment>
     <Heading text='Dashboard' variant='heading-1' />
-  </div>
+  </React.Fragment>
 )
 
 Dashboard.propTypes = {
