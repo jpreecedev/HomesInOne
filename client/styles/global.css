@@ -5,9 +5,4 @@
   --size-small: 8px;
   --size-medium: 16px;
   --size-large: 32px;
-  --link: #333333;
-}
-
-a {
-  color: var(--link);
 }

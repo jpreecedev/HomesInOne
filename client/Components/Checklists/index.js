@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
+import Text from '../Text'
+import TextLink from '../TextLink'
 import Heading from '../Heading'
 
 import { getChecklists } from 'Store/actions/checklist'
@@ -19,9 +20,9 @@ class Checklists extends Component {
       <Heading text='Checklists' variant='heading-1' />
       {
         checklists && checklists.map((checklist, index) =>
-          <Link key={index} to={`/shell/checklists/${checklist.id}/details`}>
-            {checklist.name}
-          </Link>
+          <Text key={index}>
+            Hello, this is some text <TextLink to={`/shell/checklists/${checklist.id}/details`} text={checklist.name} />
+          </Text>
         )
       }
     </React.Fragment>
