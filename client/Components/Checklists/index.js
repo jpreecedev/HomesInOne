@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import Heading from '../Heading'
-import CheckboxList from '../CheckboxList'
 
 import { getChecklists } from 'Store/actions/checklist'
 
@@ -18,7 +18,11 @@ class Checklists extends Component {
     return <div>
       <Heading text='Checklists' variant='heading-1' />
       {
-        checklists && checklists.map(checklist => <CheckboxList key={checklist.id} name={checklist.name} items={checklist.checklistItems} />)
+        checklists && checklists.map((checklist, index) =>
+          <Link key={index} to={`/shell/checklists/${checklist.id}/details`}>
+            {checklist.name}
+          </Link>
+        )
       }
     </div>
   }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 import AppHeader from './AppHeader'
 import AppSideNav from './AppSideNav'
