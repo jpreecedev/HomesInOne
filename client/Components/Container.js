@@ -9,10 +9,7 @@ import Heading from './Heading'
 const themeStyles = theme => {
   return {
     container: {
-      paddingTop: theme.spacing.unit * 2,
-      paddingRight: theme.spacing.unit * 2,
-      paddingLeft: theme.spacing.unit * 2,
-      paddingBottom: 0
+      padding: theme.spacing.unit * 2
     },
     root: {
       padding: 0,
@@ -22,7 +19,7 @@ const themeStyles = theme => {
 }
 
 const Container = ({ classes, additionalStyles, title, children }) => (
-  <Paper className={`${classes.root} ${additionalStyles}`} elevation={4}>
+  <Paper component='section' className={`${classes.root} ${additionalStyles}`} elevation={4}>
     <Heading container variant='title' color='primary'>
       {title}
     </Heading>
@@ -35,7 +32,7 @@ const Container = ({ classes, additionalStyles, title, children }) => (
 Container.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  children: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   additionalStyles: PropTypes.string
 }
 
