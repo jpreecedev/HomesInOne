@@ -55,13 +55,17 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader'
-        }, {
-          loader: 'sass-loader'
-        }]
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }
     ]
   },
@@ -71,11 +75,10 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.js',
-      minChunks (module, count) {
+      minChunks(module, count) {
         var context = module.context
         return context && context.indexOf('node_modules') >= 0
       }
     })
-
   ]
 }

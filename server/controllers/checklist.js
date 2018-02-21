@@ -2,11 +2,10 @@ const Checklist = require('../models').Checklist
 const ChecklistItem = require('../models').ChecklistItem
 
 module.exports = {
-  create (req, res) {
-    return Checklist
-      .create({
-        name: req.body.name
-      })
+  create(req, res) {
+    return Checklist.create({
+      name: req.body.name
+    })
       .then(checklist => {
         const checklistItems = req.body.items.map(item => {
           return {
@@ -20,20 +19,20 @@ module.exports = {
       .then(checklist => res.status(201).send(checklist))
       .catch(error => res.status(400).send(error))
   },
-  list (req, res) {
-    return Checklist
-      .findAll({
-        include: [{
+  list(req, res) {
+    return Checklist.findAll({
+      include: [
+        {
           model: ChecklistItem,
           as: 'checklistItems'
-        }]
-      })
+        }
+      ]
+    })
       .then(checklists => res.status(200).send(checklists))
       .catch(error => res.status(400).send(error))
   },
-  destroy (req, res) {
-    return Checklist
-      .findById(req.params.checklistId)
+  destroy(req, res) {
+    return Checklist.findById(req.params.checklistId)
       .then(checklist => {
         if (!checklist) {
           return res.status(400).send({

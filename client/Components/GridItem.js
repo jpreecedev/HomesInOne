@@ -5,7 +5,7 @@ import Grid from 'material-ui/Grid'
 
 const FlexibleGridItem = ({ children, xs = 12, sm = 12, md = 6, lg = 6, xl = 6 }) => (
   <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-    { children }
+    {children}
   </Grid>
 )
 

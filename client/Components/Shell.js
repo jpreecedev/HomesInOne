@@ -17,11 +17,11 @@ const Shell = () => (
     <AppSideNav className={styles.nav} />
     <main className={styles.main}>
       <Switch>
-        <Route path='/shell/dashboard' component={DashboardRouteConfig} />
-        <Route path='/shell/checklists' component={ChecklistsRouteConfig} />
-        <Route path='/shell/properties' component={PropertiesRouteConfig} />
-        <Route path='/shell/shortlist' component={ShortlistRouteConfig} />
-        <Redirect from='/' to='/shell/dashboard' />
+        <Route path="/shell/dashboard" component={DashboardRouteConfig} />
+        <Route path="/shell/checklists" component={ChecklistsRouteConfig} />
+        <Route path="/shell/properties" component={PropertiesRouteConfig} />
+        <Route path="/shell/shortlist" component={ShortlistRouteConfig} />
+        <Redirect from="/" to="/shell/dashboard" />
       </Switch>
     </main>
   </div>

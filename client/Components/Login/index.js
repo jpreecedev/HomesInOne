@@ -19,15 +19,13 @@ const themeStyles = theme => ({
   }
 })
 
-const Login = ({classes}) => (
-  <Container additionalStyles={classes.container} title='Hello'>
-    <Text>
-        Please log in with your account
-    </Text>
-    <Input id='emailAddress' label='Email Address' />
-    <Input id='password' label='Password' type='password' />
+const Login = ({ classes }) => (
+  <Container additionalStyles={classes.container} title="Hello">
+    <Text>Please log in with your account</Text>
+    <Input id="emailAddress" label="Email Address" />
+    <Input id="password" label="Password" type="password" />
     <ActionButtonContainer>
-      <Button color='primary'>Log In</Button>
+      <Button color="primary">Log In</Button>
     </ActionButtonContainer>
   </Container>
 )

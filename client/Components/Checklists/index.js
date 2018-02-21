@@ -11,24 +11,26 @@ import FromTemplate from './FromTemplate'
 import { getChecklists } from 'Store/actions/checklist'
 
 class Checklists extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.props.loadChecklists()
   }
 
-  render () {
+  render() {
     const { checklists } = this.props
 
-    return <React.Fragment>
-      <Heading text='Checklists' variant='heading-1' />
-      {
-        checklists && checklists.map((checklist, index) =>
-          <Text key={index}>
-            Hello, this is some text <TextLink to={`/shell/checklists/${checklist.id}/details`} text={checklist.name} />
-          </Text>
-        )
-      }
-      <FromTemplate />
-    </React.Fragment>
+    return (
+      <React.Fragment>
+        <Heading text="Checklists" variant="heading-1" />
+        {checklists &&
+          checklists.map((checklist, index) => (
+            <Text key={index}>
+              Hello, this is some text{' '}
+              <TextLink to={`/shell/checklists/${checklist.id}/details`} text={checklist.name} />
+            </Text>
+          ))}
+        <FromTemplate />
+      </React.Fragment>
+    )
   }
 }
 

@@ -20,18 +20,19 @@ const NavLink = ({ to, className, classes, children, isActive: getIsActive }) =>
   const escapedPath = path.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1')
 
   return (
-    <Route path={escapedPath} children={({location, match}) => {
-      const isActive = !!(getIsActive ? getIsActive(match, location) : match)
-      const linkClassName = isActive
-        ? [className, classes.active].filter(i => i).join(' ')
-        : className
+    <Route
+      path={escapedPath}
+      children={({ location, match }) => {
+        const isActive = !!(getIsActive ? getIsActive(match, location) : match)
+        const linkClassName = isActive ? [className, classes.active].filter(i => i).join(' ') : className
 
-      return (
-        <Link to={to} className={linkClassName}>
-          {children}
-        </Link>
-      )
-    }} />
+        return (
+          <Link to={to} className={linkClassName}>
+            {children}
+          </Link>
+        )
+      }}
+    />
   )
 }
 

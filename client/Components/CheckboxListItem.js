@@ -8,31 +8,32 @@ import Checkbox from 'material-ui/Checkbox'
 import { toggleChecklistItemComplete } from 'Store/actions/checklist'
 
 class CheckboxListItem extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.setState({
       checked: false
     })
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({
       checked: nextProps.checklistItem.complete
     })
   }
 
-  render () {
+  render() {
     const { checklistItem, toggleChecklistItem } = this.props
 
-    return <ListItem key={checklistItem.id} button onClick={() => toggleChecklistItem(checklistItem)}>
-      <Checkbox checked={this.state.checked} tabIndex={-1} disableRipple />
-      <ListItemText primary={checklistItem.name} />
-    </ListItem>
+    return (
+      <ListItem key={checklistItem.id} button onClick={() => toggleChecklistItem(checklistItem)}>
+        <Checkbox checked={this.state.checked} tabIndex={-1} disableRipple />
+        <ListItemText primary={checklistItem.name} />
+      </ListItem>
+    )
   }
 }
 
 const mapStateToProps = store => {
-  return {
-  }
+  return {}
 }
 
 const mapDispatchToProps = dispatch => {

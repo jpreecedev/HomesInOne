@@ -15,12 +15,12 @@ const themeStyles = theme => ({
 
 const AppHeader = ({ classes, className, history }) => (
   <div className={className}>
-    <AppBar position='static'>
+    <AppBar position="static">
       <Toolbar>
-        <Typography variant='title' color='inherit' className={classes.container}>
-            HomesInOne.co.uk
+        <Typography variant="title" color="inherit" className={classes.container}>
+          HomesInOne.co.uk
         </Typography>
-        <Button color='inherit' onClick={() => history.push('/login')}>
+        <Button color="inherit" onClick={() => history.push('/login')}>
           Login
         </Button>
       </Toolbar>

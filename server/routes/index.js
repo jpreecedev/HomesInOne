@@ -1,10 +1,12 @@
 const checklistController = require('../controllers').checklist
 const checklistItemController = require('../controllers').checklistItems
 
-module.exports = (app) => {
-  app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome to the Checklist API!'
-  }))
+module.exports = app => {
+  app.get('/api', (req, res) =>
+    res.status(200).send({
+      message: 'Welcome to the Checklist API!'
+    })
+  )
 
   app.get('/api/checklists', checklistController.list)
 

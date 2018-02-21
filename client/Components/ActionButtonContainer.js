@@ -11,12 +11,10 @@ const themeStyles = theme => ({
   }
 })
 
-const Login = ({classes, children}) => {
+const Login = ({ classes, children }) => {
   const buttons = children ? (Array.isArray(children) ? children : [children]) : []
 
-  return <div className={classes.container}>
-    {buttons}
-  </div>
+  return <div className={classes.container}>{buttons}</div>
 }
 
 Login.propTypes = {

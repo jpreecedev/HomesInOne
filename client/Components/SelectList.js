@@ -23,20 +23,23 @@ const SelectList = ({ classes, label, children }) => {
   const selectListItems = children ? (Array.isArray(children) ? children : [children]) : []
 
   if (selectListItems && selectListItems.length) {
-    return <FormControl className={classes.formControl}>
-      <InputLabel>{label}</InputLabel>
-      {
-        <Select value={selectListItems[0].props.value}>
-          {
-            selectListItems && selectListItems.map((selectListItem, index) => {
-              return <SelectListItem key={index} value={selectListItem.props.value}>
-                { selectListItem.props.text }
-              </SelectListItem>
-            })
-          }
-        </Select>
-      }
-    </FormControl>
+    return (
+      <FormControl className={classes.formControl}>
+        <InputLabel>{label}</InputLabel>
+        {
+          <Select value={selectListItems[0].props.value}>
+            {selectListItems &&
+              selectListItems.map((selectListItem, index) => {
+                return (
+                  <SelectListItem key={index} value={selectListItem.props.value}>
+                    {selectListItem.props.text}
+                  </SelectListItem>
+                )
+              })}
+          </Select>
+        }
+      </FormControl>
+    )
   }
 
   return null

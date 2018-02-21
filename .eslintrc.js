@@ -1,11 +1,12 @@
 module.exports = {
-  "extends": ["standard", "standard-react"],
-  "plugins": ["jest"],
-  "env": {
-    "browser": true,
-    "jest/globals": true
+  extends: ['standard', 'standard-react'],
+  plugins: ['jest'],
+  env: {
+    browser: true,
+    'jest/globals': true
   },
-  "rules": {
-    "jsx-quotes": ["error", "prefer-double"]
+  rules: {
+    'jsx-quotes': ['error', 'prefer-double'],
+    'space-before-function-paren': ['error', 'never']
   }
 }

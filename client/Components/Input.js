@@ -14,11 +14,7 @@ const themeStyles = theme => ({
 })
 
 const TextField = ({ classes, id, label, type, prefix }) => (
-  <FormControl
-    fullWidth
-    className={classes.formControl}
-    aria-describedby={`${label}-label`}
-  >
+  <FormControl fullWidth className={classes.formControl} aria-describedby={`${label}-label`}>
     <InputLabel id={`${label}-label`}>{label}</InputLabel>
     <Input
       id={id}
@@ -26,9 +22,7 @@ const TextField = ({ classes, id, label, type, prefix }) => (
       label={label}
       className={classes.textField}
       type={type}
-      startAdornment={
-        prefix && <InputAdornment position="start">{prefix}</InputAdornment>
-      }
+      startAdornment={prefix && <InputAdornment position="start">{prefix}</InputAdornment>}
     />
   </FormControl>
 )

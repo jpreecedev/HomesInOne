@@ -10,7 +10,9 @@ import GridItem from '../GridItem'
 const Shortlist = () => (
   <React.Fragment>
     <Heading text="Shortlist" variant="heading-1" />
-    <Text>Work out the potential Return on investment (ROI) so you can compare with other investment opportunities</Text>
+    <Text>
+      Work out the potential Return on investment (ROI) so you can compare with other investment opportunities
+    </Text>
     <Grid>
       <GridItem>
         <Container title="Purchase financials">

@@ -16,9 +16,9 @@ const HomesInOne = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route path='/login' component={LoginRouteConfig} />
-          <Route path='/shell' component={Shell} />
-          <Redirect from='/' to='/shell' />
+          <Route path="/login" component={LoginRouteConfig} />
+          <Route path="/shell" component={Shell} />
+          <Redirect from="/" to="/shell" />
         </Switch>
       </BrowserRouter>
     </Provider>

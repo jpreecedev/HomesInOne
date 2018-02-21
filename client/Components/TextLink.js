@@ -12,9 +12,9 @@ const themeStyles = theme => ({
   }
 })
 
-const TextLink = ({classes, to, children, text}) => (
+const TextLink = ({ classes, to, children, text }) => (
   <Link to={to}>
-    <Typography component='span' variant='body1' className={classes.textLink}>
+    <Typography component="span" variant="body1" className={classes.textLink}>
       {children || text}
     </Typography>
   </Link>

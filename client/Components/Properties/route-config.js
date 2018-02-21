@@ -5,6 +5,6 @@ import Main from './index'
 
 export const Routes = () => (
   <Switch>
-    <Route exact path='/shell/properties' component={Main} />
+    <Route exact path="/shell/properties" component={Main} />
   </Switch>
 )
