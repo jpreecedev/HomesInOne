@@ -24,8 +24,7 @@ class Checklists extends Component {
         {checklists &&
           checklists.map((checklist, index) => (
             <Text key={index}>
-              Hello, this is some text{' '}
-              <TextLink to={`/shell/checklists/${checklist.id}/details`} text={checklist.name} />
+              Hello, this is some text <TextLink to={`/shell/checklists/${checklist.id}/details`} text={checklist.name} />
             </Text>
           ))}
         <FromTemplate />

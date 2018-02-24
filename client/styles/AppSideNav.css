@@ -1,6 +1,5 @@
 .sidebar {
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  font-size: var(--font-size-small);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   font-weight: 500;
   padding-top: var(--size-small);
 }

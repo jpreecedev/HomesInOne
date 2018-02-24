@@ -9,10 +9,10 @@ a {
 .container {
   display: grid;
   grid-template-areas:
-    "header header"
-    "nav content";
+    'header header header'
+    'nav content right';
   height: 100vh;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 300px 1fr 200px;
   grid-template-rows: auto 1fr;
 }
 

@@ -5,4 +5,6 @@
   --size-small: 8px;
   --size-medium: 16px;
   --size-large: 32px;
+
+  font-size: var(--size-medium);
 }

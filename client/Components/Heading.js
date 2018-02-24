@@ -33,11 +33,7 @@ const getDisplayClass = variant => {
 
 const Heading = ({ classes, text, children, variant, color, className, container }) => (
   <header>
-    <Typography
-      className={container && classes.heading}
-      variant={getDisplayClass(variant)}
-      color={color}
-      gutterBottom={!container}>
+    <Typography className={container && classes.heading} variant={getDisplayClass(variant)} color={color} gutterBottom={!container}>
       {text || children}
     </Typography>
   </header>

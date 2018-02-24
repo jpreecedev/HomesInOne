@@ -19,10 +19,7 @@ const themeStyles = theme => ({
 const FromTemplate = ({ classes, checklists }) => (
   <Container additionalStyles={classes.container} title="Create a checklist">
     <SelectList label="Select a checklist template">
-      {checklists &&
-        checklists.map((checklist, index) => (
-          <SelectListItem key={index} value={checklist.name} text={checklist.name} />
-        ))}
+      {checklists && checklists.map((checklist, index) => <SelectListItem key={index} value={checklist.name} text={checklist.name} />)}
     </SelectList>
     <ActionButtonContainer>
       <Button color="primary">Create Checklist</Button>

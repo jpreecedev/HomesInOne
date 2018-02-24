@@ -5,6 +5,8 @@ import { withStyles } from 'material-ui/styles'
 import Input, { InputAdornment, InputLabel } from 'material-ui/Input'
 import { FormControl } from 'material-ui/Form'
 
+import { Field } from 'redux-form'
+
 const themeStyles = theme => ({
   textField: {
     width: '100%',
@@ -13,26 +15,45 @@ const themeStyles = theme => ({
   }
 })
 
-const TextField = ({ classes, id, label, type, prefix }) => (
-  <FormControl fullWidth className={classes.formControl} aria-describedby={`${label}-label`}>
-    <InputLabel id={`${label}-label`}>{label}</InputLabel>
-    <Input
-      id={id}
-      name={id}
-      label={label}
-      className={classes.textField}
-      type={type}
-      startAdornment={prefix && <InputAdornment position="start">{prefix}</InputAdornment>}
-    />
-  </FormControl>
-)
-
-TextField.propTypes = {
-  classes: PropTypes.object.isRequired,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  prefix: PropTypes.string
+const renderInput = ({ classes, label, id, type, prefix, input }) => {
+  return (
+    <FormControl fullWidth className={classes.formControl} aria-describedby={`${label}-label`}>
+      <InputLabel id={`${label}-label`}>{label}</InputLabel>
+      <Input
+        id={id}
+        name={id}
+        label={label}
+        className={classes.textField}
+        type={type}
+        startAdornment={prefix && <InputAdornment position="start">{prefix}</InputAdornment>}
+        {...input}
+      />
+    </FormControl>
+  )
 }
 
-export default withStyles(themeStyles)(TextField)
+const CustomInput = ({ classes, id, label, type, prefix, defaultValue }) => {
+  return (
+    <Field
+      name={id}
+      component={props => {
+        props.input.value = defaultValue
+        return renderInput({ classes, label, id, type, prefix, ...props })
+      }}
+    />
+  )
+}
+
+const sharedPropTypes = {
+  classes: PropTypes.object,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  type: PropTypes.string,
+  prefix: PropTypes.string,
+  input: PropTypes.object,
+  value: PropTypes.string
+}
+
+CustomInput.propTypes = renderInput.propTypes = sharedPropTypes
+
+export default withStyles(themeStyles)(CustomInput)

@@ -18,18 +18,10 @@
     "resetdb": "yarn postgres:dropdb && yarn postgres:createdb && yarn sql:migratedb && yarn start"
   },
   "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "setupFiles": [
-      "./jest.setup.js"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./jest.setup.js"]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "dependencies": {
     "body-parser": "^1.18.2",
     "classnames": "^2.2.5",
