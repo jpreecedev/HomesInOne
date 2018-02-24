@@ -8,8 +8,8 @@ import Container from '../Container'
 const Results = ({ shortlist }) => (
   <Container title="Your results">
     <Text>
-      Based on the information provided above, use the following calculations to decide if the return on investment meets or exceeds your
-      expections.
+      Based on the information provided above, use the following calculations to decide if the return on investment
+      meets or exceeds your expections.
     </Text>
     <Text>
       In our opinion, this is <strong>{shortlist.scoreInWords}</strong> investment

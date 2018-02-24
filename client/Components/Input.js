@@ -15,9 +15,9 @@ const themeStyles = theme => ({
   }
 })
 
-const renderInput = ({ classes, label, id, type, prefix, input }) => {
+const renderInput = ({ classes, label, id, type, prefix, suffix, input }) => {
   return (
-    <FormControl fullWidth className={classes.formControl} aria-describedby={`${label}-label`}>
+    <FormControl fullWidth aria-describedby={`${label}-label`}>
       <InputLabel id={`${label}-label`}>{label}</InputLabel>
       <Input
         id={id}
@@ -26,22 +26,15 @@ const renderInput = ({ classes, label, id, type, prefix, input }) => {
         className={classes.textField}
         type={type}
         startAdornment={prefix && <InputAdornment position="start">{prefix}</InputAdornment>}
+        endAdornment={suffix && <InputAdornment position="end">{suffix}</InputAdornment>}
         {...input}
       />
     </FormControl>
   )
 }
 
-const CustomInput = ({ classes, id, label, type, prefix, defaultValue }) => {
-  return (
-    <Field
-      name={id}
-      component={props => {
-        props.input.value = defaultValue
-        return renderInput({ classes, label, id, type, prefix, ...props })
-      }}
-    />
-  )
+const CustomInput = ({ classes, id, label, type, prefix, suffix }) => {
+  return <Field name={id} component={props => renderInput({ classes, label, id, type, prefix, suffix, ...props })} />
 }
 
 const sharedPropTypes = {
@@ -50,6 +43,7 @@ const sharedPropTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   prefix: PropTypes.string,
+  suffix: PropTypes.string,
   input: PropTypes.object,
   value: PropTypes.string
 }

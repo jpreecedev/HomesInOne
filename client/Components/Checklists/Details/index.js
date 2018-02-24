@@ -23,7 +23,10 @@ const Details = ({ classes, checklists, match }) => {
     <React.Fragment>
       <Heading text={name} variant="heading-3" />
       <List className={classes.root}>
-        {checklistItems && checklistItems.map(checklistItem => <CheckboxListItem key={checklistItem.id} checklistItem={checklistItem} />)}
+        {checklistItems &&
+          checklistItems.map(checklistItem => (
+            <CheckboxListItem key={checklistItem.id} checklistItem={checklistItem} />
+          ))}
       </List>
     </React.Fragment>
   )

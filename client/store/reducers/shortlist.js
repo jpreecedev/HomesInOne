@@ -39,7 +39,8 @@ const getReturnOnInvestment = shortlistedProperty => {
   const annualManagement = annualIncome * (managementCost.toFloat() / 100)
   const annualRepairs = annualIncome * (repairsContingency.toFloat() / 100)
 
-  const annualProfit = annualIncome - (annualInterest + annualManagement + annualRepairs + serviceCharge.toFloat() + insurance.toFloat())
+  const annualProfit =
+    annualIncome - (annualInterest + annualManagement + annualRepairs + serviceCharge.toFloat() + insurance.toFloat())
   const monthlyProfit = annualProfit / 12
   const netYield = annualProfit / pricePaid.toFloat()
   const roi = annualProfit / (deposit.toFloat() + fees.toFloat())
@@ -52,7 +53,8 @@ const getReturnOnInvestment = shortlistedProperty => {
     monthlyProfit,
     netYield: netYield * 100,
     roi: roi * 100,
-    scoreInWords: roiTotal < 3 ? 'a poor' : roiTotal >= 3 && roiTotal < 10 ? 'a good' : roiTotal > 10 ? 'an excellent' : ''
+    scoreInWords:
+      roiTotal < 3 ? 'a poor' : roiTotal >= 3 && roiTotal < 10 ? 'a good' : roiTotal > 10 ? 'an excellent' : ''
   }
 }
 
