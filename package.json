@@ -27,7 +27,7 @@
     "classnames": "^2.2.5",
     "express": "^4.16.2",
     "material-ui": "^1.0.0-beta.33",
-    "material-ui-icons": "^1.0.0-beta.17",
+    "material-ui-icons": "^1.0.0-beta.35",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.0",
@@ -39,7 +39,7 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^4.33.4",
+    "sequelize": "^4.34.0",
     "typeface-roboto": "^0.0.54",
     "whatwg-fetch": "^2.0.3"
   },
@@ -48,7 +48,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.1",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -67,7 +67,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "file-loader": "^1.1.9",
     "foreman": "^2.0.0",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "webpack-contrib/html-webpack-plugin",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.2",
     "node-sass": "^4.7.2",
@@ -84,8 +84,10 @@
     "style-loader": "^0.20.1",
     "stylelint": "^9.1.1",
     "stylelint-config-recommended": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack": "^4.0.0",
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.0.0"
   }
 }

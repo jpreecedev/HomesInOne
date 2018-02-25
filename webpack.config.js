@@ -10,10 +10,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: './client/index.js',
-  output: {
-    path: path.resolve('dist'),
-    filename: 'index_bundle.js'
-  },
   resolve: {
     extensions: ['.js', '.css', '.scss'],
     alias: {
@@ -69,16 +65,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    HtmlWebpackPluginConfig,
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js',
-      minChunks(module, count) {
-        var context = module.context
-        return context && context.indexOf('node_modules') >= 0
-      }
-    })
-  ]
+  plugins: [HtmlWebpackPluginConfig]
 }
