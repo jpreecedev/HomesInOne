@@ -33,8 +33,8 @@ const renderInput = ({ classes, label, id, type, prefix, suffix, input }) => {
   )
 }
 
-const CustomInput = ({ classes, id, label, type, prefix, suffix }) => {
-  return <Field name={id} component={props => renderInput({ classes, label, id, type, prefix, suffix, ...props })} />
+const CustomInput = props => {
+  return <Field name={props.id} component={componentProps => renderInput({ ...componentProps, ...props })} />
 }
 
 const sharedPropTypes = {
@@ -44,8 +44,7 @@ const sharedPropTypes = {
   type: PropTypes.string,
   prefix: PropTypes.string,
   suffix: PropTypes.string,
-  input: PropTypes.object,
-  value: PropTypes.string
+  input: PropTypes.object
 }
 
 CustomInput.propTypes = renderInput.propTypes = sharedPropTypes

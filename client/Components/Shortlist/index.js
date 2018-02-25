@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
 import { updateShortlist } from '../../store/actions/shortlist'
+import { shortlistDefaultState as defaultState } from '../../store/state'
 
 import Heading from '../Heading'
 import Text from '../Text'
@@ -12,7 +13,6 @@ import ContainerSection from '../ContainerSection'
 import Input from '../Input'
 import Grid from '../Grid'
 import GridItem from '../GridItem'
-import Button from '../Button'
 
 import Results from './results'
 import validate from './validate'
@@ -23,23 +23,23 @@ class Shortlist extends Component {
   }
 
   render() {
-    const { handleSubmit, processForm } = this.props
+    const { handleSubmit, processForm, shortlist } = this.props
 
     return (
       <React.Fragment>
-        <Heading text="Shortlist" variant="heading-1" />
-        <Text>
-          Work out the potential Return on investment (ROI) so you can compare with other investment opportunities
-        </Text>
-        <Grid>
-          <GridItem>
-            <Container title="Purchase financials">
-              <form onSubmit={handleSubmit(processForm)}>
+        <form onSubmit={handleSubmit(processForm)}>
+          <Heading text="Shortlist" variant="heading-1" />
+          <Text>
+            Work out the potential Return on investment (ROI) so you can compare with other investment opportunities
+          </Text>
+          <Grid>
+            <GridItem>
+              <Container title="Purchase financials">
                 <Input id="reference" label="Reference" />
-                <Input id="address1" label="First line of address" />
-                <Input id="purchasePrice" label="Purchase price" type="number" prefix="£" />
+                <Input id="address" label="First line of address" />
+                <Input id="pricePaid" label="Purchase price" type="number" prefix="£" />
                 <Input id="deposit" label="Deposit" prefix="£" type="number" />
-                <Input id="refurbFees" label="Refurbishment &amp; fees" type="number" prefix="£" />
+                <Input id="fees" label="Refurbishment &amp; fees" type="number" prefix="£" />
 
                 <ContainerSection title="Rental" />
                 <Input id="lettableUnits" label="Lettable units" type="number" />
@@ -51,17 +51,13 @@ class Shortlist extends Component {
                 <Input id="repairsContingency" label="Repairs contingency" type="number" suffix="%" />
                 <Input id="serviceCharge" label="Service charge and ground rent (Annual)" type="number" prefix="£" />
                 <Input id="insurance" label="Insurance (Annual)" prefix="£" type="number" />
-
-                <Button type="submit" color="primary" variant="raised">
-                  Update score
-                </Button>
-              </form>
-            </Container>
-          </GridItem>
-          <GridItem>
-            <Results />
-          </GridItem>
-        </Grid>
+              </Container>
+            </GridItem>
+            <GridItem>
+              <Results shortlist={shortlist} />
+            </GridItem>
+          </Grid>
+        </form>
       </React.Fragment>
     )
   }
@@ -70,7 +66,7 @@ class Shortlist extends Component {
 Shortlist.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   processForm: PropTypes.func.isRequired,
-  shortlist: PropTypes.object.isRequired
+  shortlist: PropTypes.object
 }
 
 const mapStateToProps = store => {
@@ -81,10 +77,16 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: values => {
-      dispatch(updateShortlist(values))
+    processForm: shortlist => {
+      dispatch(updateShortlist(shortlist))
     }
   }
 }
 
-export default reduxForm({ form: 'shortlist', validate })(connect(mapStateToProps, mapDispatchToProps)(Shortlist))
+export default reduxForm({
+  form: 'shortlist',
+  validate,
+  initialValues: {
+    ...defaultState.shortlist
+  }
+})(connect(mapStateToProps, mapDispatchToProps)(Shortlist))

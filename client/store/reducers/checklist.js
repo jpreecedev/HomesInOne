@@ -1,8 +1,5 @@
 import { ChecklistActions } from '../actions/checklist'
-
-const defaultState = {
-  checklists: []
-}
+import { checklistDefaultState as defaultState } from '../state'
 
 const toggleChecklistItem = (checklists, payload) => {
   return checklists.map(checklist => {
