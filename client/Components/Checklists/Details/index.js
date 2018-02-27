@@ -15,13 +15,19 @@ const themeStyles = theme => ({
   }
 })
 
-const Details = ({ classes, checklists, match }) => {
+const Details = ({ classes, checklists, match, history }) => {
   const selectedChecklist = checklists.find(checklist => checklist.id === Number(match.params.id))
+
+  if (!selectedChecklist) {
+    history.push('/shell/checklists')
+    return null
+  }
+
   const { name, checklistItems } = selectedChecklist
 
   return (
     <Fragment>
-      <Heading text={name} variant="heading-3" />
+      <Heading text={name} variant="heading-1" />
       <List className={classes.root}>
         {checklistItems &&
           checklistItems.map(checklistItem => (
@@ -41,7 +47,8 @@ const mapStateToProps = store => {
 Details.propTypes = {
   classes: PropTypes.object.isRequired,
   checklists: PropTypes.array.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default withStyles(themeStyles)(connect(mapStateToProps)(Details))
