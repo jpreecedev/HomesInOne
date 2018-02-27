@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+
 import Heading from 'Shared/Heading'
+import Table from 'Shared/Table'
 
 const Shortlist = () => {
-  return <Heading text="Shortlist" variant="heading-1" />
+  return (
+    <Fragment>
+      <Heading text="Shortlist" variant="heading-1" />
+      <Table />
+    </Fragment>
+  )
 }
 
 Shortlist.propTypes = {}
