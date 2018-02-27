@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import Text from '../Text'
-import Button from '../Button'
-import Container from '../Container'
+import Text from 'Shared/Text'
+import Button from 'Shared/Button'
+import Container from 'Shared/Container'
 
 const Results = ({ shortlist }) => {
   const resultDetails = (

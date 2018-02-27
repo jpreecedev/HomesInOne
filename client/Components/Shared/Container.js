@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import Paper from 'material-ui/Paper'
 
-import Heading from './Heading'
+import Heading from 'Shared/Heading'
 
 const themeStyles = theme => {
   return {

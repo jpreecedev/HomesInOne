@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SelectListItem from './SelectListItem'
+import SelectListItem from 'Shared/SelectListItem'
 
 import { withStyles } from 'material-ui/styles'
 import { InputLabel } from 'material-ui/Input'

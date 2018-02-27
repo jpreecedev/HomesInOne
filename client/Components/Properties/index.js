@@ -1,10 +1,6 @@
 import React from 'react'
-import Heading from '../Heading'
+import Heading from 'Shared/Heading'
 
-const Properties = () => (
-  <React.Fragment>
-    <Heading text="Properties" variant="heading-1" />
-  </React.Fragment>
-)
+const Properties = () => <Heading text="Properties" variant="heading-1" />
 
 export default Properties

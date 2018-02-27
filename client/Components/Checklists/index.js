@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Text from '../Text'
-import TextLink from '../TextLink'
-import Heading from '../Heading'
+import Text from 'Shared/Text'
+import TextLink from 'Shared/TextLink'
+import Heading from 'Shared/Heading'
 
 import FromTemplate from './FromTemplate'
 
@@ -19,7 +19,7 @@ class Checklists extends Component {
     const { checklists } = this.props
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Heading text="Checklists" variant="heading-1" />
         {checklists &&
           checklists.map((checklist, index) => (
@@ -29,7 +29,7 @@ class Checklists extends Component {
             </Text>
           ))}
         <FromTemplate />
-      </React.Fragment>
+      </Fragment>
     )
   }
 }

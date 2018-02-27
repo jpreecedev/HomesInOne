@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -14,7 +13,8 @@ module.exports = {
     extensions: ['.js', '.css', '.scss'],
     alias: {
       Styles: path.resolve(__dirname, 'client/styles'),
-      Store: path.resolve(__dirname, 'client/store')
+      Store: path.resolve(__dirname, 'client/store'),
+      Shared: path.resolve(__dirname, 'client/Components/Shared')
     }
   },
   module: {

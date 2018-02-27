@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { withStyles } from 'material-ui/styles'
 import List from 'material-ui/List'
 
-import Heading from '../../Heading'
-import CheckboxListItem from '../../CheckboxListItem'
+import Heading from 'Shared/Heading'
+import CheckboxListItem from 'Shared/CheckboxListItem'
 
 const themeStyles = theme => ({
   root: {
@@ -20,7 +20,7 @@ const Details = ({ classes, checklists, match }) => {
   const { name, checklistItems } = selectedChecklist
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Heading text={name} variant="heading-3" />
       <List className={classes.root}>
         {checklistItems &&
@@ -28,7 +28,7 @@ const Details = ({ classes, checklists, match }) => {
             <CheckboxListItem key={checklistItem.id} checklistItem={checklistItem} />
           ))}
       </List>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

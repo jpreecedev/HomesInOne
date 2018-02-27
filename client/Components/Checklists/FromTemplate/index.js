@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles'
 
-import Container from '../../Container'
-import SelectList from '../../SelectList'
-import SelectListItem from '../../SelectListItem'
-import ActionButtonContainer from '../../ActionButtonContainer'
-import Button from '../../Button'
+import Container from 'Shared/Container'
+import SelectList from 'Shared/SelectList'
+import SelectListItem from 'Shared/SelectListItem'
+import ActionButtonContainer from 'Shared/ActionButtonContainer'
+import Button from 'Shared/Button'
 
 const themeStyles = theme => ({
   container: {

@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 
-import Container from '../Container'
-import Text from '../Text'
-import Input from '../Input'
-import ActionButtonContainer from '../ActionButtonContainer'
-import Button from '../Button'
+import Container from 'Shared/Container'
+import Text from 'Shared/Text'
+import Input from 'Shared/Input'
+import ActionButtonContainer from 'Shared/ActionButtonContainer'
+import Button from 'Shared/Button'
 
 const themeStyles = theme => ({
   container: {

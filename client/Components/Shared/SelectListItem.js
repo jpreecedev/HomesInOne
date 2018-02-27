@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MenuItem } from 'material-ui/Menu'
 
-const SelectListItem = ({ value, children, label }) => (
-  <React.Fragment>
-    <MenuItem value={value}>{children || label}</MenuItem>
-  </React.Fragment>
-)
+const SelectListItem = ({ value, children, label }) => <MenuItem value={value}>{children || label}</MenuItem>
 
 SelectListItem.propTypes = {
   value: PropTypes.string.isRequired,
