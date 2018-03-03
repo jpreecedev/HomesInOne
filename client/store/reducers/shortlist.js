@@ -32,16 +32,16 @@ const getReturnOnInvestment = shortlistedProperty => {
       insurance.toFloat())
   const monthlyProfit = annualProfit / 12
   const netYield = annualProfit / pricePaid.toFloat()
-  const roi = annualProfit / (deposit.toFloat() + fees.toFloat())
+  const potentialROI = annualProfit / (deposit.toFloat() + fees.toFloat())
 
-  const roiTotal = roi * 100
+  const roiTotal = potentialROI * 100
 
   return {
     ...shortlistedProperty,
     annualProfit,
     monthlyProfit,
     netYield: netYield * 100,
-    roi: roi * 100,
+    potentialROI: potentialROI * 100,
     scoreInWords:
       roiTotal < 3
         ? 'a poor'
@@ -51,8 +51,18 @@ const getReturnOnInvestment = shortlistedProperty => {
 
 export const ShortlistReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case ShortlistActions.GET_COMPLETE:
+      state = Object.assign({}, state, {
+        shortlists: action.payload
+      })
+      break
     case ShortlistActions.UPDATE:
       state = Object.assign({}, { shortlist: getReturnOnInvestment(action.payload) })
+      break
+    case ShortlistActions.ADD_SUCCESS:
+      state = Object.assign({}, state, {
+        shortlists: action.payload
+      })
       break
   }
 

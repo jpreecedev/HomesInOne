@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
-import { updateShortlist } from 'Store/actions/shortlist'
+import { updateShortlist, addToShortlist } from 'Store/actions/shortlist'
 import { shortlistDefaultState as defaultState } from 'Store/state'
 
 import Heading from 'Shared/Heading'
@@ -13,11 +13,16 @@ import ContainerSection from 'Shared/ContainerSection'
 import Input from 'Shared/Input'
 import Grid from 'Shared/Grid'
 import GridItem from 'Shared/GridItem'
+import Button from 'Shared/Button'
 
 import Results from './results'
 import validate from './validate'
 
 class Analyse extends Component {
+  addToShortlist(shortlist) {
+    this.props.addToShortlist(shortlist)
+  }
+
   componentWillMount() {
     this.props.processForm(this.props.shortlist)
   }
@@ -84,7 +89,20 @@ class Analyse extends Component {
             </Container>
           </GridItem>
           <GridItem>
-            <Results shortlist={shortlist} />
+            <Container title="Your results">
+              <Results shortlist={shortlist} />
+              <Button type="submit" color="primary" variant="raised">
+                Update score
+              </Button>
+              <Button
+                type="button"
+                color="primary"
+                variant="raised"
+                onClick={() => this.addToShortlist(shortlist)}
+              >
+                Add to shortlist
+              </Button>
+            </Container>
           </GridItem>
         </Grid>
       </form>
@@ -95,6 +113,7 @@ class Analyse extends Component {
 Analyse.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   processForm: PropTypes.func.isRequired,
+  addToShortlist: PropTypes.func.isRequired,
   shortlist: PropTypes.object
 }
 
@@ -108,6 +127,9 @@ const mapDispatchToProps = dispatch => {
   return {
     processForm: shortlist => {
       dispatch(updateShortlist(shortlist))
+    },
+    addToShortlist: shortlist => {
+      dispatch(addToShortlist(shortlist))
     }
   }
 }

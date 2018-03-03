@@ -36,7 +36,7 @@ class MaterialTable extends React.Component {
 
     this.state = {
       data: props.data,
-      columns: props.columns,
+      columnMap: props.columnMap,
       page: 0,
       rowsPerPage: 5
     }
@@ -62,7 +62,7 @@ class MaterialTable extends React.Component {
 
   render() {
     const { classes } = this.props
-    const { data, columns, rowsPerPage, page } = this.state
+    const { data, columnMap, rowsPerPage, page } = this.state
     const emptyRows =
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage)
 
@@ -72,8 +72,8 @@ class MaterialTable extends React.Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
-                {columns.map((column, index) => {
-                  return <TableCell key={index}>{column}</TableCell>
+                {Object.keys(columnMap).map(column => {
+                  return <TableCell key={column}>{columnMap[column]}</TableCell>
                 })}
               </TableRow>
             </TableHead>
@@ -86,11 +86,8 @@ class MaterialTable extends React.Component {
                     className={classes.hover}
                     onClick={event => this.handleRowClick(event, n)}
                   >
-                    {Object.keys(n).map((key, index) => {
-                      if (key === 'id') {
-                        return null
-                      }
-                      return <TableCell key={index}>{n[key]}</TableCell>
+                    {Object.keys(columnMap).map(key => {
+                      return <TableCell key={key}>{n[key]}</TableCell>
                     })}
                   </TableRow>
                 )
@@ -124,7 +121,7 @@ class MaterialTable extends React.Component {
 MaterialTable.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.array,
-  columns: PropTypes.array,
+  columnMap: PropTypes.object.isRequired,
   rowClicked: PropTypes.func
 }
 

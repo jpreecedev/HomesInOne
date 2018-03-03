@@ -20,7 +20,7 @@ export const shortlistDefaultState = {
     monthlyProfit: 0,
     annualProfit: 0,
     netYield: 0,
-    roi: 0,
+    potentialROI: 0,
     scoreInWords: ''
   }
 }
