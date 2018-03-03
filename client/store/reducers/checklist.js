@@ -8,14 +8,16 @@ const toggleChecklistItem = (checklists, payload) => {
     }
 
     const updatedChecklist = Object.assign({}, checklist)
-    updatedChecklist.checklistItems = updatedChecklist.checklistItems.map(checklistItem => {
-      if (checklistItem.id !== payload.id) {
-        return checklistItem
+    updatedChecklist.checklistItems = updatedChecklist.checklistItems.map(
+      checklistItem => {
+        if (checklistItem.id !== payload.id) {
+          return checklistItem
+        }
+        return Object.assign({}, checklistItem, {
+          complete: !checklistItem.complete
+        })
       }
-      return Object.assign({}, checklistItem, {
-        complete: !checklistItem.complete
-      })
-    })
+    )
 
     return updatedChecklist
   })

@@ -77,7 +77,8 @@ const Heading = ({ classes, text, children, variant, color, className, container
       variant={displayClass.className}
       component={displayClass.tag}
       color={color}
-      gutterBottom={!container}>
+      gutterBottom={!container}
+    >
       {text || children}
     </Typography>
   )
@@ -87,7 +88,15 @@ Heading.propTypes = {
   classes: PropTypes.object.isRequired,
   text: PropTypes.string,
   children: PropTypes.string,
-  variant: PropTypes.oneOf(['heading-1', 'heading-2', 'heading-3', 'heading-4', 'headline', 'title', 'subheading']),
+  variant: PropTypes.oneOf([
+    'heading-1',
+    'heading-2',
+    'heading-3',
+    'heading-4',
+    'headline',
+    'title',
+    'subheading'
+  ]),
   color: PropTypes.string,
   className: PropTypes.string,
   container: PropTypes.bool

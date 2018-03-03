@@ -24,7 +24,9 @@ const NavLink = ({ to, className, classes, children, isActive: getIsActive }) =>
       path={escapedPath}
       children={({ location, match }) => {
         const isActive = !!(getIsActive ? getIsActive(match, location) : match)
-        const linkClassName = isActive ? [className, classes.active].filter(i => i).join(' ') : className
+        const linkClassName = isActive
+          ? [className, classes.active].filter(i => i).join(' ')
+          : className
 
         return (
           <Link to={to} className={linkClassName}>

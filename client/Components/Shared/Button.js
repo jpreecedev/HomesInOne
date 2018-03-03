@@ -10,7 +10,13 @@ const themeStyles = theme => ({
 })
 
 const AppButton = ({ classes, children, color, variant, onClick, type = 'button' }) => (
-  <Button type={type} color={color} className={classes.button} variant={variant} onClick={onClick}>
+  <Button
+    type={type}
+    color={color}
+    className={classes.button}
+    variant={variant}
+    onClick={onClick}
+  >
     {children}
   </Button>
 )

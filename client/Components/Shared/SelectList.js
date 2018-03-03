@@ -20,7 +20,9 @@ const themeStyles = theme => ({
 })
 
 const SelectList = ({ classes, label, children }) => {
-  const selectListItems = children ? (Array.isArray(children) ? children : [children]) : []
+  const selectListItems = children
+    ? Array.isArray(children) ? children : [children]
+    : []
 
   if (selectListItems && selectListItems.length) {
     return (

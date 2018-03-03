@@ -24,7 +24,11 @@ class CheckboxListItem extends Component {
     const { checklistItem, toggleChecklistItem } = this.props
 
     return (
-      <ListItem key={checklistItem.id} button onClick={() => toggleChecklistItem(checklistItem)}>
+      <ListItem
+        key={checklistItem.id}
+        button
+        onClick={() => toggleChecklistItem(checklistItem)}
+      >
         <Checkbox checked={this.state.checked} tabIndex={-1} disableRipple />
         <ListItemText primary={checklistItem.name} />
       </ListItem>

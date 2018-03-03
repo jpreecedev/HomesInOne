@@ -16,7 +16,9 @@ const themeStyles = theme => ({
 })
 
 const Details = ({ classes, checklists, match, history }) => {
-  const selectedChecklist = checklists.find(checklist => checklist.id === Number(match.params.id))
+  const selectedChecklist = checklists.find(
+    checklist => checklist.id === Number(match.params.id)
+  )
 
   if (!selectedChecklist) {
     history.push('/shell/checklists')

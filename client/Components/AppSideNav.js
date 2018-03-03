@@ -28,25 +28,45 @@ const themeStyles = theme => ({
 const AppSideNav = ({ classes }) => (
   <div className={`${classes.root} ${styles.sidebar}`}>
     <List component="nav">
-      <ListItem component={NavLink} to={'/shell/dashboard'} className={classes.link} button>
+      <ListItem
+        component={NavLink}
+        to={'/shell/dashboard'}
+        className={classes.link}
+        button
+      >
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItem>
-      <ListItem component={NavLink} to={'/shell/properties'} className={classes.link} button>
+      <ListItem
+        component={NavLink}
+        to={'/shell/properties'}
+        className={classes.link}
+        button
+      >
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
         <ListItemText primary="Properties" />
       </ListItem>
-      <ListItem component={NavLink} to={'/shell/shortlist'} className={classes.link} button>
+      <ListItem
+        component={NavLink}
+        to={'/shell/shortlist'}
+        className={classes.link}
+        button
+      >
         <ListItemIcon>
           <VisibilityIcon />
         </ListItemIcon>
         <ListItemText primary="Shortlist" />
       </ListItem>
-      <ListItem component={NavLink} to={'/shell/checklists'} className={classes.link} button>
+      <ListItem
+        component={NavLink}
+        to={'/shell/checklists'}
+        className={classes.link}
+        button
+      >
         <ListItemIcon>
           <ListIcon />
         </ListItemIcon>

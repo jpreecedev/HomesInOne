@@ -25,7 +25,9 @@ const renderInput = ({ classes, label, id, type, prefix, suffix, input }) => {
         label={label}
         className={classes.textField}
         type={type}
-        startAdornment={prefix && <InputAdornment position="start">{prefix}</InputAdornment>}
+        startAdornment={
+          prefix && <InputAdornment position="start">{prefix}</InputAdornment>
+        }
         endAdornment={suffix && <InputAdornment position="end">{suffix}</InputAdornment>}
         {...input}
       />
@@ -34,7 +36,12 @@ const renderInput = ({ classes, label, id, type, prefix, suffix, input }) => {
 }
 
 const CustomInput = props => {
-  return <Field name={props.id} component={componentProps => renderInput({ ...componentProps, ...props })} />
+  return (
+    <Field
+      name={props.id}
+      component={componentProps => renderInput({ ...componentProps, ...props })}
+    />
+  )
 }
 
 const sharedPropTypes = {

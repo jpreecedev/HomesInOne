@@ -29,7 +29,8 @@ class Analyse extends Component {
       <form onSubmit={handleSubmit(processForm)}>
         <Heading text="Shortlist" variant="heading-1" />
         <Text>
-          Work out the potential Return on investment (ROI) so you can compare with other investment opportunities
+          Work out the potential Return on investment (ROI) so you can compare with other
+          investment opportunities
         </Text>
         <Grid>
           <GridItem>
@@ -38,17 +39,47 @@ class Analyse extends Component {
               <Input id="address" label="First line of address" />
               <Input id="pricePaid" label="Purchase price" type="number" prefix="£" />
               <Input id="deposit" label="Deposit" prefix="£" type="number" />
-              <Input id="fees" label="Refurbishment &amp; fees" type="number" prefix="£" />
+              <Input
+                id="fees"
+                label="Refurbishment &amp; fees"
+                type="number"
+                prefix="£"
+              />
 
               <ContainerSection title="Rental" />
               <Input id="lettableUnits" label="Lettable units" type="number" />
-              <Input id="expectedRentalIncome" label="Rental income per unit" type="number" prefix="£" />
+              <Input
+                id="expectedRentalIncome"
+                label="Rental income per unit"
+                type="number"
+                prefix="£"
+              />
 
               <ContainerSection title="On-going costs" />
-              <Input id="mortgageInterestRate" label="Mortgage interest rate" type="number" suffix="%" />
-              <Input id="managementCost" label="Management cost (Monthly)" type="number" suffix="%" />
-              <Input id="repairsContingency" label="Repairs contingency" type="number" suffix="%" />
-              <Input id="serviceCharge" label="Service charge and ground rent (Annual)" type="number" prefix="£" />
+              <Input
+                id="mortgageInterestRate"
+                label="Mortgage interest rate"
+                type="number"
+                suffix="%"
+              />
+              <Input
+                id="managementCost"
+                label="Management cost (Monthly)"
+                type="number"
+                suffix="%"
+              />
+              <Input
+                id="repairsContingency"
+                label="Repairs contingency"
+                type="number"
+                suffix="%"
+              />
+              <Input
+                id="serviceCharge"
+                label="Service charge and ground rent (Annual)"
+                type="number"
+                prefix="£"
+              />
               <Input id="insurance" label="Insurance (Annual)" prefix="£" type="number" />
             </Container>
           </GridItem>
