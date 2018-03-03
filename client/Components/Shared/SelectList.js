@@ -29,9 +29,13 @@ const SelectList = ({ classes, label, children }) => {
         {
           <Select value={selectListItems[0].props.value}>
             {selectListItems &&
-              selectListItems.map(selectListItem => {
+              selectListItems.map((selectListItem, index) => {
                 return (
-                  <SelectListItem key={selectListItem.id} value={selectListItem.props.value}>
+                  <SelectListItem
+                    key={index}
+                    id={selectListItem.id}
+                    value={selectListItem.props.value}
+                  >
                     {selectListItem.props.text}
                   </SelectListItem>
                 )

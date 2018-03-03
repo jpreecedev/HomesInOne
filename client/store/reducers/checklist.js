@@ -36,4 +36,5 @@ export const ChecklistReducer = (state = defaultState, action) => {
     default:
       return state
   }
+  return state
 }

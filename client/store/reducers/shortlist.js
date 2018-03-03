@@ -67,4 +67,5 @@ export const ShortlistReducer = (state = defaultState, action) => {
     default:
       return state
   }
+  return state
 }

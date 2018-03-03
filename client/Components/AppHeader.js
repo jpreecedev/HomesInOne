@@ -20,7 +20,7 @@ const AppHeader = ({ classes, className, history }) => (
         <Typography variant="title" color="inherit" className={classes.container}>
           HomesInOne.co.uk
         </Typography>
-        <Button color="inherit" onClick={() => history.push('/login')}>
+        <Button color="inherit" variant="flat" onClick={() => history.push('/login')}>
           Login
         </Button>
       </Toolbar>

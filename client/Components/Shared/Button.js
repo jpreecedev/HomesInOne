@@ -9,7 +9,7 @@ const themeStyles = theme => ({
   }
 })
 
-const AppButton = ({ classes, children, color, variant, onClick, type = 'button' }) => (
+const AppButton = ({ classes, children, color, variant = 'raised', onClick, type = 'button' }) => (
   <Button type={type} color={color} className={classes.button} variant={variant} onClick={onClick}>
     {children}
   </Button>
@@ -19,9 +19,9 @@ AppButton.propTypes = {
   classes: PropTypes.object.isRequired,
   children: PropTypes.string.isRequired,
   color: PropTypes.oneOf(['default', 'inherit', 'primary', 'secondary']).isRequired,
-  variant: PropTypes.oneOf(['flat', 'raised', 'fab']).isRequired,
+  variant: PropTypes.oneOf(['flat', 'raised', 'fab']),
   onClick: PropTypes.func,
-  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired
+  type: PropTypes.oneOf(['button', 'submit', 'reset'])
 }
 
 export default withStyles(themeStyles)(AppButton)
