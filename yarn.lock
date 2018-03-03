@@ -2949,6 +2949,16 @@ escodegen@^1.9.0:
   optionalDependencies:
     source-map "~0.5.6"
 
+eslint-config-ao-react@^0.0.1-rc.3:
+  version "0.0.1-rc.3"
+  resolved "https://registry.yarnpkg.com/eslint-config-ao-react/-/eslint-config-ao-react-0.0.1-rc.3.tgz#9a3cfd2dc598d4e830c99ab594a745a7112bd94a"
+  dependencies:
+    eslint-config-ao "^0.0.1-rc.3"
+
+eslint-config-ao@^0.0.1-rc.3:
+  version "0.0.1-rc.3"
+  resolved "https://registry.yarnpkg.com/eslint-config-ao/-/eslint-config-ao-0.0.1-rc.3.tgz#03f0f6e6619ecedac1f0644e5e4c80a9d2b7748b"
+
 eslint-config-standard-jsx@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-standard-jsx/-/eslint-config-standard-jsx-5.0.0.tgz#4abfac554f38668e0078c664569e7b2384e5d2aa"

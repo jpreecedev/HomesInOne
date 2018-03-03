@@ -19,7 +19,7 @@ const Login = ({ classes, children }) => {
 
 Login.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
 }
 
 export default withStyles(themeStyles)(Login)

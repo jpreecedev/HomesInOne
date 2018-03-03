@@ -19,11 +19,7 @@ const themeStyles = theme => {
 }
 
 const Container = ({ classes, additionalStyles, title, children }) => (
-  <Paper
-    component="section"
-    className={`${classes.root} ${additionalStyles}`}
-    elevation={4}
-  >
+  <Paper component="section" className={`${classes.root} ${additionalStyles}`} elevation={4}>
     <Heading container variant="title" color="primary">
       {title}
     </Heading>

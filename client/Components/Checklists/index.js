@@ -22,13 +22,10 @@ class Checklists extends Component {
       <Fragment>
         <Heading text="Checklists" variant="heading-1" />
         {checklists &&
-          checklists.map((checklist, index) => (
-            <Text key={index}>
+          checklists.map(checklist => (
+            <Text key={checklist.id}>
               Hello, this is some text{' '}
-              <TextLink
-                to={`/shell/checklists/${checklist.id}/details`}
-                text={checklist.name}
-              />
+              <TextLink to={`/shell/checklists/${checklist.id}/details`} text={checklist.name} />
             </Text>
           ))}
         <FromTemplate />

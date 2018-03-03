@@ -64,7 +64,7 @@ export const ShortlistReducer = (state = defaultState, action) => {
         shortlists: action.payload
       })
       break
+    default:
+      return state
   }
-
-  return state
 }

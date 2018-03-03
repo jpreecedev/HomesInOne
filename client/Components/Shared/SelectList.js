@@ -20,9 +20,7 @@ const themeStyles = theme => ({
 })
 
 const SelectList = ({ classes, label, children }) => {
-  const selectListItems = children
-    ? Array.isArray(children) ? children : [children]
-    : []
+  const selectListItems = children ? (Array.isArray(children) ? children : [children]) : []
 
   if (selectListItems && selectListItems.length) {
     return (
@@ -31,9 +29,9 @@ const SelectList = ({ classes, label, children }) => {
         {
           <Select value={selectListItems[0].props.value}>
             {selectListItems &&
-              selectListItems.map((selectListItem, index) => {
+              selectListItems.map(selectListItem => {
                 return (
-                  <SelectListItem key={index} value={selectListItem.props.value}>
+                  <SelectListItem key={selectListItem.id} value={selectListItem.props.value}>
                     {selectListItem.props.text}
                   </SelectListItem>
                 )

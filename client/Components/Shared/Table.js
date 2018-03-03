@@ -63,8 +63,7 @@ class MaterialTable extends React.Component {
   render() {
     const { classes } = this.props
     const { data, columnMap, rowsPerPage, page } = this.state
-    const emptyRows =
-      rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage)
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage)
 
     return (
       <Paper className={classes.root}>

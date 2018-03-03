@@ -19,12 +19,12 @@ import Results from './results'
 import validate from './validate'
 
 class Analyse extends Component {
-  addToShortlist(shortlist) {
-    this.props.addToShortlist(shortlist)
-  }
-
   componentWillMount() {
     this.props.processForm(this.props.shortlist)
+  }
+
+  addToShortlist(shortlist) {
+    this.props.addToShortlist(shortlist)
   }
 
   render() {
@@ -34,8 +34,8 @@ class Analyse extends Component {
       <form onSubmit={handleSubmit(processForm)}>
         <Heading text="Shortlist" variant="heading-1" />
         <Text>
-          Work out the potential Return on investment (ROI) so you can compare with other
-          investment opportunities
+          Work out the potential Return on investment (ROI) so you can compare with other investment
+          opportunities
         </Text>
         <Grid>
           <GridItem>
@@ -44,12 +44,7 @@ class Analyse extends Component {
               <Input id="address" label="First line of address" />
               <Input id="pricePaid" label="Purchase price" type="number" prefix="£" />
               <Input id="deposit" label="Deposit" prefix="£" type="number" />
-              <Input
-                id="fees"
-                label="Refurbishment &amp; fees"
-                type="number"
-                prefix="£"
-              />
+              <Input id="fees" label="Refurbishment &amp; fees" type="number" prefix="£" />
 
               <ContainerSection title="Rental" />
               <Input id="lettableUnits" label="Lettable units" type="number" />
@@ -73,12 +68,7 @@ class Analyse extends Component {
                 type="number"
                 suffix="%"
               />
-              <Input
-                id="repairsContingency"
-                label="Repairs contingency"
-                type="number"
-                suffix="%"
-              />
+              <Input id="repairsContingency" label="Repairs contingency" type="number" suffix="%" />
               <Input
                 id="serviceCharge"
                 label="Service charge and ground rent (Annual)"
