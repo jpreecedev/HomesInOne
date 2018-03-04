@@ -1,10 +1,21 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const passport = require('passport')
 
 const app = express()
 
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+
+app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(session({ secret: 'homesinone', saveUninitialized: false, resave: false }))
+app.use(passport.initialize())
+app.use(passport.session())
+
+require('./config/passport')(passport)
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -18,10 +29,11 @@ app.use((req, res, next) => {
   next()
 })
 
-require('./routes')(app)
+require('./routes')(app, passport)
+
 app.get('*', (req, res) =>
   res.status(200).send({
-    message: 'Welcome to the beginning of nothingness.'
+    message: 'The HomesInOne API is active.'
   })
 )
 
