@@ -4,6 +4,7 @@ const User = require('../../../models').User
 const Local = require('../../../models').Local
 
 const generateHash = require('../../../utils/user').generateHash
+const validPassword = require('../../../utils/user').validPassword
 
 const Signup = passport => {
   passport.serializeUser((user, done) => {
@@ -24,13 +25,39 @@ const Signup = passport => {
     'local-signup',
     new LocalStrategy(
       {
-        usernameField: 'email',
+        usernameField: 'emailAddress',
         passwordField: 'password',
         passReqToCallback: true
       },
-      processRequest
+      processSignInRequest
     )
   )
+
+  passport.use(
+    'local-login',
+    new LocalStrategy(
+      {
+        usernameField: 'emailAddress',
+        passwordField: 'password',
+        passReqToCallback: true
+      },
+      processLogInRequest
+    )
+  )
+}
+
+const tryFindUser = (email, password, done) => {
+  Local.findOne({ where: { email } }).then(local => {
+    if (!local) {
+      return done('User not recognised')
+    }
+
+    if (!validPassword(password, local.password)) {
+      return done('Password not recognised')
+    }
+
+    return done(null, local)
+  })
 }
 
 const tryCreateUser = (email, password, done) => {
@@ -59,7 +86,13 @@ const tryCreateUser = (email, password, done) => {
     })
 }
 
-const processRequest = (req, email, password, done) => {
+const processLogInRequest = (req, email, password, done) => {
+  process.nextTick(() => {
+    tryFindUser(email, password, done)
+  })
+}
+
+const processSignInRequest = (req, email, password, done) => {
   process.nextTick(() => {
     tryCreateUser(email, password, done)
   })

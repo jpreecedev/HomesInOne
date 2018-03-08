@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt-nodejs')
 
-const isLoggedIn = (req, res, next) => {
+const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next()
 
   res.redirect('/')
@@ -15,7 +15,7 @@ const validPassword = (suppliedPassword, storedPassword) => {
 }
 
 module.exports = {
-  isLoggedIn,
+  isAuthenticated,
   generateHash,
   validPassword
 }

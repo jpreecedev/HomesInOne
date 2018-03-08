@@ -1,7 +1,7 @@
-const localSignup = require('./local/signup')
+const localStrategy = require('./local')
 
 const config = passport => {
-  localSignup(passport)
+  localStrategy(passport)
 }
 
 module.exports = config

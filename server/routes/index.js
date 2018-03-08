@@ -3,7 +3,7 @@ const shortlistController = require('../controllers').shortlist
 const checklistItemController = require('../controllers').checklistItems
 const authController = require('../controllers').auth
 
-const isLoggedIn = require('../utils/user').isLoggedIn
+const isAuthenticated = require('../utils/user').isAuthenticated
 
 module.exports = (app, passport) => {
   app.get('/api/checklists', checklistController.list)
@@ -17,28 +17,12 @@ module.exports = (app, passport) => {
   app.post('/api/shortlist', shortlistController.create)
 
   app.get('/logout', authController.logout)
-  app.post('/login', authController.login)
-  app.get('/profile', isLoggedIn, authController.profile)
+  app.get('/profile', isAuthenticated, authController.profile)
 
   app.get('/failed', (req, res) => {
     res.status(400).send()
   })
 
-  app.post('/signup', (req, res, next) => {
-    passport.authenticate('local-signup', (err, user, info) => {
-      if (err) {
-        return next(err)
-      }
-
-      if (!user) {
-        return res.send({ success: false, message: 'authentication failed' })
-      }
-      req.login(user, loginErr => {
-        if (loginErr) {
-          return next(loginErr)
-        }
-        return res.send({ success: true, message: 'authentication succeeded' })
-      })
-    })(req, res, next)
-  })
+  app.post('/login', (req, res, next) => authController.login(req, res, next, passport))
+  app.post('/signup', (req, res, next) => authController.signup(req, res, next, passport))
 }

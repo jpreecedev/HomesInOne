@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
+import { reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { postData } from 'Store/utils'
 
 import Container from 'Shared/Container'
 import Text from 'Shared/Text'
@@ -19,19 +22,37 @@ const themeStyles = theme => ({
   }
 })
 
-const Login = ({ classes }) => (
+const Login = ({ classes, handleSubmit, processForm }) => (
   <Container additionalStyles={classes.container} title="Hello">
-    <Text>Please log in with your account</Text>
-    <Input id="emailAddress" label="Email Address" />
-    <Input id="password" label="Password" type="password" />
-    <ActionButtonContainer>
-      <Button color="primary">Log In</Button>
-    </ActionButtonContainer>
+    <form onSubmit={handleSubmit(processForm)}>
+      <Text>Please log in with your account</Text>
+      <Input id="emailAddress" label="Email Address" />
+      <Input id="password" label="Password" type="password" />
+      <ActionButtonContainer>
+        <Button type="submit" color="primary">
+          Log In
+        </Button>
+      </ActionButtonContainer>
+    </form>
   </Container>
 )
 
 Login.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  processForm: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(themeStyles)(Login)
+const mapDispatchToProps = dispatch => {
+  return {
+    processForm: credentials => {
+      postData('http://localhost:3100/login', credentials).then(result => {
+        debugger
+      })
+    }
+  }
+}
+
+export default reduxForm({
+  form: 'login'
+})(withStyles(themeStyles)(connect(null, mapDispatchToProps)(Login)))
