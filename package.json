@@ -18,10 +18,18 @@
     "resetdb": "yarn postgres:dropdb && yarn postgres:createdb && yarn sql:migratedb && yarn start"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./jest.setup.js"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
+    ]
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.2",
@@ -41,6 +49,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-auth-wrapper": "^2.0.2",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.35.2",

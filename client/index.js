@@ -5,10 +5,12 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import store from './store'
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 
+import { userIsAuthenticatedRedir } from './auth'
+
 import 'whatwg-fetch'
 import 'typeface-roboto'
 import 'Styles/global'
-import './global'
+import './shared'
 
 import { Routes as LoginRouteConfig } from './components/Login/route-config'
 import Shell from './components/Shell.js'
@@ -32,7 +34,7 @@ const HomesInOne = () => {
         <BrowserRouter>
           <Switch>
             <Route path="/login" component={LoginRouteConfig} />
-            <Route path="/shell" component={Shell} />
+            <Route path="/shell" component={userIsAuthenticatedRedir(Shell)} />
             <Redirect from="/" to="/shell" />
           </Switch>
         </BrowserRouter>

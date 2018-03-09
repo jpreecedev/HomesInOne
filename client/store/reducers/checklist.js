@@ -21,7 +21,7 @@ const toggleChecklistItem = (checklists, payload) => {
   })
 }
 
-export const ChecklistReducer = (state = defaultState, action) => {
+export default function ChecklistReducer(state = defaultState, action) {
   switch (action.type) {
     case ChecklistActions.GET_CHECKLISTS_COMPLETE:
       state = Object.assign({}, state, {

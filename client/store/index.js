@@ -1,14 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import { reducer as formReducer } from 'redux-form'
 
 import reducers from './reducers'
 
-const combinedReducers = combineReducers({
-  checklistState: reducers.ChecklistReducer,
-  shortlistState: reducers.ShortlistReducer,
-  form: formReducer
-})
+const combinedReducers = combineReducers(Object.assign({}, reducers, {}))
 
 export default createStore(
   combinedReducers,

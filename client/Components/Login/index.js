@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { postData } from 'Store/utils'
+import { login } from 'Store/actions/user'
 
 import Container from 'Shared/Container'
 import Text from 'Shared/Text'
@@ -46,9 +46,7 @@ Login.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: credentials => {
-      postData('http://localhost:3100/token', credentials).then(result => {
-        debugger
-      })
+      dispatch(login(credentials))
     }
   }
 }

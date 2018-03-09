@@ -28,7 +28,7 @@ const generateToken = (req, res, next, passport) => {
     res.status(401).send({
       message: 'Invalid credentials'
     })
-    return
+    return next()
   }
 
   Local.findOne({ where: { email: emailAddress } }).then(local => {
@@ -37,7 +37,7 @@ const generateToken = (req, res, next, passport) => {
         res.status(401).send({
           message: 'Invalid credentials'
         })
-        return
+        return next()
       }
 
       const payload = {
@@ -46,6 +46,7 @@ const generateToken = (req, res, next, passport) => {
 
       const token = jwt.encode(payload, config.jwtSecret)
       res.json({
+        exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
         token: token
       })
     } else {

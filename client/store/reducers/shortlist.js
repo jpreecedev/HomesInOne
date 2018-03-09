@@ -49,7 +49,7 @@ const getReturnOnInvestment = shortlistedProperty => {
   }
 }
 
-export const ShortlistReducer = (state = defaultState, action) => {
+export default function ShortlistReducer(state = defaultState, action) {
   switch (action.type) {
     case ShortlistActions.GET_COMPLETE:
       state = Object.assign({}, state, {
