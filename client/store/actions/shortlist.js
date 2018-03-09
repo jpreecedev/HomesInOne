@@ -1,3 +1,4 @@
+import { CALL_API } from 'redux-api-middleware'
 import { postData } from 'Store/utils'
 
 export const ShortlistActions = {
@@ -5,7 +6,8 @@ export const ShortlistActions = {
   ADD: 'ADD',
   ADD_SUCCESS: 'ADD_SUCCESS',
   GET: 'GET',
-  GET_COMPLETE: 'GET_COMPLETE'
+  GET_COMPLETE: 'GET_COMPLETE',
+  GET_FAILURE: 'GET_FAILRE'
 }
 
 export function updateShortlist(shortlist) {
@@ -22,15 +24,14 @@ export function getShortlistSuccess(shortlists) {
   }
 }
 
-export const getShortlists = () => dispatch => {
-  dispatch({ type: ShortlistActions.GET })
-
-  const request = fetch('http://localhost:3100/api/shortlists').then(response => {
-    return response.json()
-  })
-
-  return request.then(response => dispatch(getShortlistSuccess(response)))
-}
+export const getShortlists = data => ({
+  [CALL_API]: {
+    types: [ShortlistActions.GET, ShortlistActions.GET_COMPLETE, ShortlistActions.GET_FAILURE],
+    endpoint: 'http://localhost:3100/api/shortlists',
+    method: 'GET',
+    body: JSON.stringify(data)
+  }
+})
 
 export function addToShortlistSuccess(shortlist) {
   return {

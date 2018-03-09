@@ -1,6 +1,9 @@
+import { CALL_API } from 'redux-api-middleware'
+
 export const ChecklistActions = {
   GET_CHECKLISTS: 'GET_CHECKLISTS',
   GET_CHECKLISTS_COMPLETE: 'GET_CHECKLISTS_COMPLETE',
+  GET_CHECKLISTS_FAILED: 'GET_CHECKLISTS_FAILED',
   TOGGLE_CHECKLIST_ITEM_COMPLETE: 'TOGGLE_CHECKLIST_ITEM_COMPLETE'
 }
 
@@ -18,12 +21,15 @@ export function toggleChecklistItemComplete(checklistItem) {
   }
 }
 
-export const getChecklists = () => dispatch => {
-  dispatch({ type: ChecklistActions.GET_CHECKLISTS })
-
-  const request = fetch('http://localhost:3100/api/checklists').then(response => {
-    return response.json()
-  })
-
-  return request.then(response => dispatch(getChecklistsSuccess(response)))
-}
+export const getChecklists = data => ({
+  [CALL_API]: {
+    types: [
+      ChecklistActions.GET_CHECKLISTS,
+      ChecklistActions.GET_CHECKLISTS_COMPLETE,
+      ChecklistActions.GET_CHECKLISTS_FAILED
+    ],
+    endpoint: 'http://localhost:3100/api/checklists',
+    method: 'GET',
+    body: JSON.stringify(data)
+  }
+})

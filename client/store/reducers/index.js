@@ -5,7 +5,7 @@ import shortlistState from './shortlist'
 import user from './user'
 
 export default {
-  formReducer,
+  form: formReducer,
   checklistState,
   shortlistState,
   user

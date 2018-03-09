@@ -52,5 +52,9 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default reduxForm({
-  form: 'login'
+  form: 'login',
+  initialValues: {
+    emailAddress: 'test2@test.com',
+    password: 'password123'
+  }
 })(withStyles(themeStyles)(connect(null, mapDispatchToProps)(Login)))
