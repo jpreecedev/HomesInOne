@@ -4,18 +4,12 @@ const passport = require('passport')
 
 const app = express()
 
-const cookieParser = require('cookie-parser')
-const session = require('express-session')
-
-app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(session({ secret: 'homesinone', saveUninitialized: false, resave: false }))
 app.use(passport.initialize())
-app.use(passport.session())
 
-require('./config/passport')(passport)
+require('./authentication')(passport)
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')

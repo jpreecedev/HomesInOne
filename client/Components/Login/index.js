@@ -46,7 +46,7 @@ Login.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: credentials => {
-      postData('http://localhost:3100/login', credentials).then(result => {
+      postData('http://localhost:3100/token', credentials).then(result => {
         debugger
       })
     }

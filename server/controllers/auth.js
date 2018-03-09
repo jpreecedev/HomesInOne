@@ -1,3 +1,9 @@
+const jwt = require('jwt-simple')
+const config = require('../config').authentication
+
+const Local = require('../models').Local
+const validPassword = require('../utils/user').validPassword
+
 const signup = (req, res, next, passport) => {
   passport.authenticate('local-signup', (err, user, info) => {
     if (err) {
@@ -16,22 +22,38 @@ const signup = (req, res, next, passport) => {
   })
 }
 
-const login = (req, res, next, passport) => {
-  passport.authenticate('local-login', (err, user, info) => {
-    if (err) {
-      return next(err)
-    }
-
-    if (!user) {
-      return res.send({ success: false, message: 'authentication failed' })
-    }
-    req.login(user, loginErr => {
-      if (loginErr) {
-        return next(loginErr)
-      }
-      return res.send({ success: true, message: 'authentication succeeded' })
+const generateToken = (req, res, next, passport) => {
+  const { emailAddress, password } = req.body
+  if (!(emailAddress && password)) {
+    res.status(401).send({
+      message: 'Invalid credentials'
     })
-  })(req, res, next)
+    return
+  }
+
+  Local.findOne({ where: { email: emailAddress } }).then(local => {
+    if (local) {
+      if (!validPassword(password, local.password)) {
+        res.status(401).send({
+          message: 'Invalid credentials'
+        })
+        return
+      }
+
+      const payload = {
+        id: local.id
+      }
+
+      const token = jwt.encode(payload, config.jwtSecret)
+      res.json({
+        token: token
+      })
+    } else {
+      res.status(401).send({
+        message: 'Invalid credentials'
+      })
+    }
+  })
 }
 
 const logout = (req, res) => {
@@ -46,7 +68,7 @@ const profile = (req, res) =>
 
 module.exports = {
   signup,
-  login,
   logout,
-  profile
+  profile,
+  generateToken
 }

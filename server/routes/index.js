@@ -3,9 +3,9 @@ const shortlistController = require('../controllers').shortlist
 const checklistItemController = require('../controllers').checklistItems
 const authController = require('../controllers').auth
 
-const isAuthenticated = require('../utils/user').isAuthenticated
+const createRoutes = (app, passport) => {
+  const isAuthenticated = passport.authenticate('jwt', { session: false })
 
-module.exports = (app, passport) => {
   app.get('/api/checklists', checklistController.list)
 
   app.post('/api/checklists', checklistController.create)
@@ -19,10 +19,9 @@ module.exports = (app, passport) => {
   app.get('/logout', authController.logout)
   app.get('/profile', isAuthenticated, authController.profile)
 
-  app.get('/failed', (req, res) => {
-    res.status(400).send()
+  app.post('/token', (req, res, next) => {
+    authController.generateToken(req, res, next, passport)
   })
-
-  app.post('/login', (req, res, next) => authController.login(req, res, next, passport))
-  app.post('/signup', (req, res, next) => authController.signup(req, res, next, passport))
 }
+
+module.exports = createRoutes
