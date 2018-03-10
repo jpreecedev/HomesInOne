@@ -35,7 +35,6 @@ class MaterialTable extends React.Component {
     super(props, context)
 
     this.state = {
-      data: props.data,
       columnMap: props.columnMap,
       page: 0,
       rowsPerPage: 5
@@ -61,9 +60,8 @@ class MaterialTable extends React.Component {
   }
 
   render() {
-    const { classes } = this.props
-    const { data, columnMap, rowsPerPage, page } = this.state
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage)
+    const { classes, data } = this.props
+    const { columnMap, rowsPerPage, page } = this.state
 
     return (
       <Paper className={classes.root}>

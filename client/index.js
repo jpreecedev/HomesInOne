@@ -12,8 +12,9 @@ import 'typeface-roboto'
 import 'Styles/global'
 import './shared'
 
-import { Routes as LoginRouteConfig } from './components/Login/route-config'
-import Shell from './components/Shell.js'
+import Shell from './components/Shell'
+import Login from './components/Login'
+import Signup from './components/Signup'
 
 const theme = createMuiTheme({
   typography: {
@@ -33,7 +34,8 @@ const PropertyShortlist = () => {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route path="/login" component={userIsNotAuthenticatedRedir(LoginRouteConfig)} />
+            <Route path="/login" component={userIsNotAuthenticatedRedir(Login)} />
+            <Route path="/signup" component={userIsNotAuthenticatedRedir(Signup)} />
             <Route path="/shell" component={userIsAuthenticatedRedir(Shell)} />
             <Redirect from="/" to="/shell" />
           </Switch>

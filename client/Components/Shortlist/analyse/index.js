@@ -7,7 +7,6 @@ import { updateShortlist, addToShortlist } from 'Store/actions/shortlist'
 import { defaultState } from 'Store/reducers/shortlist'
 
 import Heading from 'Shared/Heading'
-import Text from 'Shared/Text'
 import Container from 'Shared/Container'
 import ContainerSection from 'Shared/ContainerSection'
 import Input from 'Shared/Input'
@@ -20,7 +19,9 @@ import validate from './validate'
 
 class Analyse extends Component {
   componentWillMount() {
-    this.props.processForm(this.props.shortlist)
+    if (this.props.shortlist) {
+      this.props.processForm(this.props.shortlist)
+    }
   }
 
   addToShortlist(shortlist) {
@@ -33,10 +34,10 @@ class Analyse extends Component {
     return (
       <form onSubmit={handleSubmit(processForm)}>
         <Heading text="Shortlist" variant="heading-1" />
-        <Text>
-          Work out the potential Return on investment (ROI) so you can compare with other investment
-          opportunities
-        </Text>
+        <Heading variant="heading-2">
+          Easily track properties you are considering purchasing and see the potential ROI
+          of each
+        </Heading>
         <Grid>
           <GridItem>
             <Container title="Purchase financials">
@@ -44,7 +45,12 @@ class Analyse extends Component {
               <Input id="address" label="First line of address" />
               <Input id="pricePaid" label="Purchase price" type="number" prefix="£" />
               <Input id="deposit" label="Deposit" prefix="£" type="number" />
-              <Input id="fees" label="Refurbishment &amp; fees" type="number" prefix="£" />
+              <Input
+                id="fees"
+                label="Refurbishment &amp; fees"
+                type="number"
+                prefix="£"
+              />
 
               <ContainerSection title="Rental" />
               <Input id="lettableUnits" label="Lettable units" type="number" />
@@ -68,7 +74,12 @@ class Analyse extends Component {
                 type="number"
                 suffix="%"
               />
-              <Input id="repairsContingency" label="Repairs contingency" type="number" suffix="%" />
+              <Input
+                id="repairsContingency"
+                label="Repairs contingency"
+                type="number"
+                suffix="%"
+              />
               <Input
                 id="serviceCharge"
                 label="Service charge and ground rent (Annual)"
@@ -107,9 +118,15 @@ Analyse.propTypes = {
   shortlist: PropTypes.object
 }
 
-const mapStateToProps = store => {
+const mapStateToProps = (store, { match }) => {
+  const shortlistId = match && match.params && parseInt(match.params.id, 10)
+  const all = store.shortlists.all
+  const shortlist = all.find(s => s.id === shortlistId)
+  const result = shortlist || { ...defaultState.active }
+
   return {
-    shortlist: store.shortlistState.shortlist
+    shortlist: result,
+    initialValues: result
   }
 }
 
@@ -126,8 +143,5 @@ const mapDispatchToProps = dispatch => {
 
 export default reduxForm({
   form: 'analyse',
-  validate,
-  initialValues: {
-    ...defaultState.shortlist
-  }
+  validate
 })(connect(mapStateToProps, mapDispatchToProps)(Analyse))

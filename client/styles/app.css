@@ -6,21 +6,9 @@ a {
   text-decoration: none;
 }
 
-.container {
-  display: grid;
-  grid-template-areas:
-    'header header header'
-    'content content right';
-  height: 100vh;
-  grid-template-columns: 300px 1fr 200px;
-  grid-template-rows: auto 1fr;
-}
-
-.header {
-  grid-area: header;
-}
-
 .main {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1.5rem 1.5rem 10rem 1.5rem;
-  grid-area: content;
 }

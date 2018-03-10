@@ -3,7 +3,6 @@ const Strategy = passportJwt.Strategy
 const ExtractJwt = passportJwt.ExtractJwt
 
 const User = require('../../models').User
-const Local = require('../../models').Local
 
 const config = require('../../config').authentication
 
@@ -14,10 +13,10 @@ const params = {
 
 const JwtStrategy = passport => {
   const strategy = new Strategy(params, (payload, done) => {
-    Local.findOne({ where: { id: payload.id } }).then(local => {
-      if (local) {
+    User.findOne({ where: { id: payload.id } }).then(user => {
+      if (user) {
         return done(null, {
-          id: local.id
+          id: user.id
         })
       }
       return done(new Error('User not found'), null)

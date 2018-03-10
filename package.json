@@ -15,7 +15,7 @@
     "postgres:dropdb": "dropdb --username=postgres propertyshortlist-dev",
     "postgres:createdb": "createdb --username=postgres propertyshortlist-dev",
     "sql:migratedb": "sequelize db:migrate",
-    "resetdb": "yarn postgres:dropdb && yarn postgres:createdb && yarn sql:migratedb && yarn start"
+    "resetdb": "yarn postgres:dropdb && yarn postgres:createdb && yarn sql:migratedb"
   },
   "jest": {
     "snapshotSerializers": ["enzyme-to-json/serializer"],

@@ -1,11 +1,43 @@
 const jwt = require('jwt-simple')
 const config = require('../config').authentication
 
-const Local = require('../models').Local
-const validPassword = require('../utils/user').validPassword
+const User = require('../models').User
+const userUtils = require('../utils/user')
 
-const signup = (req, res, next, passport) => {
-  passport.authenticate('local-signup', (err, user, info) => {
+const signup = (req, res, next) => {
+  const { emailAddress, password, passwordConfirm } = req.body
+  if (!(emailAddress && password && passwordConfirm && password === passwordConfirm)) {
+    return next('Valid email address and password required')
+  }
+
+  User.findOne({ where: { email: emailAddress } }).then(user => {
+    if (user) {
+      return next('Email address is already taken')
+    }
+
+    User.create({
+      email: emailAddress,
+      password: userUtils.generateHash(password)
+    })
+      .then(newUser => {
+        const payload = {
+          id: newUser.id
+        }
+
+        const token = jwt.encode(payload, config.jwtSecret)
+        res.json({
+          exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
+          token
+        })
+      })
+      .catch(error => {
+        res.status(500).send(error)
+      })
+  })
+}
+
+const login = (req, res, next, passport) => {
+  passport.authenticate('user-login', (err, user, info) => {
     if (err) {
       return next(err)
     }
@@ -31,9 +63,9 @@ const generateToken = (req, res, next, passport) => {
     return next()
   }
 
-  Local.findOne({ where: { email: emailAddress } }).then(local => {
-    if (local) {
-      if (!validPassword(password, local.password)) {
+  User.findOne({ where: { email: emailAddress } }).then(user => {
+    if (user) {
+      if (!userUtils.validPassword(password, user.password)) {
         res.status(401).send({
           message: 'Invalid credentials'
         })
@@ -41,7 +73,7 @@ const generateToken = (req, res, next, passport) => {
       }
 
       const payload = {
-        id: local.id
+        id: user.id
       }
 
       const token = jwt.encode(payload, config.jwtSecret)
@@ -69,6 +101,7 @@ const profile = (req, res) =>
 
 module.exports = {
   signup,
+  login,
   logout,
   profile,
   generateToken

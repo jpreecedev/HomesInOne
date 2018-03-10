@@ -25,7 +25,9 @@ const renderInput = ({ classes, label, id, type, prefix, suffix, input }) => {
         label={label}
         className={classes.textField}
         type={type}
-        startAdornment={prefix && <InputAdornment position="start">{prefix}</InputAdornment>}
+        startAdornment={
+          prefix && <InputAdornment position="start">{prefix}</InputAdornment>
+        }
         endAdornment={suffix && <InputAdornment position="end">{suffix}</InputAdornment>}
         {...input}
       />

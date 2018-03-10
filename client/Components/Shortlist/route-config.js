@@ -6,7 +6,7 @@ import Analyse from './analyse/index'
 
 export const Routes = () => (
   <Switch>
-    <Route path="/shell/shortlist/analyse/:id" component={Analyse} />
+    <Route path="/shell/shortlist/analyse/:id?" component={Analyse} />
     <Route exact path="/shell/shortlist" component={Main} />
   </Switch>
 )

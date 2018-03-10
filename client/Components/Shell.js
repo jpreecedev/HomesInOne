@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 
 import AppHeader from './AppHeader'
@@ -8,15 +8,15 @@ import { Routes as ShortlistRouteConfig } from './Shortlist/route-config'
 import styles from 'Styles/App'
 
 const Shell = () => (
-  <div className={styles.container}>
-    <AppHeader className={styles.header} />
+  <Fragment>
+    <AppHeader />
     <main className={styles.main}>
       <Switch>
         <Route path="/shell/shortlist" component={ShortlistRouteConfig} />
         <Redirect from="/" to="/shell/shortlist" />
       </Switch>
     </main>
-  </div>
+  </Fragment>
 )
 
 export default withRouter(Shell)

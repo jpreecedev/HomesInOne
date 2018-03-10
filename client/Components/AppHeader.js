@@ -13,24 +13,21 @@ const themeStyles = theme => ({
   }
 })
 
-const AppHeader = ({ classes, className, history }) => (
-  <div className={className}>
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="title" color="inherit" className={classes.container}>
-          Property Shortlist
-        </Typography>
-        <Button color="inherit" variant="flat" onClick={() => history.push('/login')}>
-          Login
-        </Button>
-      </Toolbar>
-    </AppBar>
-  </div>
+const AppHeader = ({ classes, history }) => (
+  <AppBar position="static">
+    <Toolbar>
+      <Typography variant="title" color="inherit" className={classes.container}>
+        Property Shortlist
+      </Typography>
+      <Button color="inherit" variant="flat" onClick={() => history.push('/login')}>
+        Login
+      </Button>
+    </Toolbar>
+  </AppBar>
 )
 
 AppHeader.propTypes = {
   classes: PropTypes.object.isRequired,
-  className: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired
 }
 
