@@ -1,4 +1,4 @@
-export const postData = (url, data) => {
+export default (url, data) => {
   return fetch(url, {
     body: JSON.stringify(data), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

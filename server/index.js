@@ -24,10 +24,4 @@ app.use((req, res, next) => {
 
 require('./routes')(app, passport)
 
-app.get('*', (req, res) =>
-  res.status(200).send({
-    message: 'The HomesInOne API is active.'
-  })
-)
-
 module.exports = app

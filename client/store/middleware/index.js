@@ -13,6 +13,5 @@ export default store => next => action => {
     }
   }
 
-  // Pass the FSA to the next action.
   return next(action)
 }
