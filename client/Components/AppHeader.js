@@ -18,7 +18,7 @@ const AppHeader = ({ classes, className, history }) => (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="title" color="inherit" className={classes.container}>
-          HomesInOne.co.uk
+          Property Shortlist
         </Typography>
         <Button color="inherit" variant="flat" onClick={() => history.push('/login')}>
           Login

@@ -1,8 +1,8 @@
 {
-  "name": "homesinone",
+  "name": "propertyshortlist",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/jpreecedev/HomesInOne.git",
+  "repository": "https://github.com/jpreecedev/PropertyShortlist.git",
   "author": "Jon Preece <jonpreece@hotmail.co.uk>",
   "license": "MIT",
   "private": false,
@@ -12,24 +12,16 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
-    "postgres:dropdb": "dropdb --username=postgres homesinone-dev",
-    "postgres:createdb": "createdb --username=postgres homesinone-dev",
+    "postgres:dropdb": "dropdb --username=postgres propertyshortlist-dev",
+    "postgres:createdb": "createdb --username=postgres propertyshortlist-dev",
     "sql:migratedb": "sequelize db:migrate",
     "resetdb": "yarn postgres:dropdb && yarn postgres:createdb && yarn sql:migratedb && yarn start"
   },
   "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "setupFiles": [
-      "./jest.setup.js"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./jest.setup.js"]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.2",
@@ -53,7 +45,6 @@
     "redux-api-middleware": "^2.3.0",
     "redux-auth-wrapper": "^2.0.2",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.2.0",
     "sequelize": "^4.35.2",
     "typeface-roboto": "^0.0.54",
     "whatwg-fetch": "^2.0.3"

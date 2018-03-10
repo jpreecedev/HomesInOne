@@ -22,10 +22,13 @@ const themeStyles = theme => ({
   }
 })
 
-const Login = ({ classes, handleSubmit, processForm }) => (
+const Login = ({ classes, handleSubmit, processForm, hasAttemptedLogin }) => (
   <Container additionalStyles={classes.container} title="Hello">
     <form onSubmit={handleSubmit(processForm)}>
       <Text>Please log in with your account</Text>
+      {hasAttemptedLogin && (
+        <Text color="error">The credentials supplied were invalid</Text>
+      )}
       <Input id="emailAddress" label="Email Address" />
       <Input id="password" label="Password" type="password" />
       <ActionButtonContainer>
@@ -40,7 +43,14 @@ const Login = ({ classes, handleSubmit, processForm }) => (
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   processForm: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  hasAttemptedLogin: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = store => {
+  return {
+    hasAttemptedLogin: store.user.attempted
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -57,4 +67,4 @@ export default reduxForm({
     emailAddress: 'test2@test.com',
     password: 'password123'
   }
-})(withStyles(themeStyles)(connect(null, mapDispatchToProps)(Login)))
+})(withStyles(themeStyles)(connect(mapStateToProps, mapDispatchToProps)(Login)))

@@ -27,7 +27,7 @@ const theme = createMuiTheme({
   }
 })
 
-const HomesInOne = () => {
+const PropertyShortlist = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Provider store={store}>
@@ -43,4 +43,4 @@ const HomesInOne = () => {
   )
 }
 
-render(<HomesInOne />, document.getElementById('root'))
+render(<PropertyShortlist />, document.getElementById('root'))

@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
 import { updateShortlist, addToShortlist } from 'Store/actions/shortlist'
-import { shortlistDefaultState as defaultState } from 'Store/state'
+import { defaultState } from 'Store/reducers/shortlist'
 
 import Heading from 'Shared/Heading'
 import Text from 'Shared/Text'
