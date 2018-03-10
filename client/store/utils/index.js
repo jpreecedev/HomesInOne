@@ -1,4 +1,4 @@
-import postData from './postData'
 import * as localStorage from './localStorage'
+import * as roi from './roi'
 
-export { postData, localStorage }
+export { localStorage, roi }
